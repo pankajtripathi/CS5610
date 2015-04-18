@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Angular Routing for movies</title>
+    <link href="../../css/bootstrap.css" rel="stylesheet" />
+    <link href="../../css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="expr1.css" rel="stylesheet" />
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.js"></script>
+    <script src="expr2.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+</head>
+
+<body class="container" ng-app="RouteApp">
+        <article>
+            <div style="margin-top:50px;">
+                <h4> About the experiment</h4>
+                <div>
+                    In this experiment, I have created the homepage for enabling user to search his favorite movies an check the movies currently in theaters.
+                    I have used angular routing to enabling routing between the pages for searchcing a movie and to check new releases.
+                    For the next two experiments I am using this same page just click on the links given below to check the functionality.
+                    For movies in theaters you can check the movie details by clicking on the movie row.
+                    For movie search you can search the movie and then check the details by clicking the movie row.
+                </div>
+            </div>
+            <nav>
+                <span ng-controller="InTheaterCtrl">
+                    <a href="#/InTheater">In Theaters</a>
+                </span>
+                <a href="#/MovieSearch">Search Movie</a>
+            </nav>
+
+    <hr />
+    <div ng-view></div>
+
+    <h4>Code Snippet</h4>
+    <section>
+        <pre id="code" style="background-color: lightgray; width: 900px; border: solid 1px black;">
+<b>JS CODE:</b><br />
+                    var app = angular.module("RouteApp", ['ngRoute']);
+app.config(['$routeProvider',
+  function ($routeProvider) {
+      $routeProvider.
+        when('/InTheater', {
+            templateUrl: 'movieLib/InTheaters.html',
+            controller: 'InTheaterCtrl'
+        }).
+        when('/MovieSearch', {
+            templateUrl: 'movieLib/MovieSearch.html',
+            controller: 'MovieSearchCtrl'
+        }).
+        when('/MovieDetails', {
+            templateUrl: 'movieLib/MovieDetails.html',
+        }).
+        otherwise({
+            redirectTo: '/MovieHandle'
+        });
+  }]);
+app.controller("InTheaterCtrl",
+    function ($scope, $http,$location,$rootScope) {
+        //Use $http.get(url) for JSON and $http.jsonp(url) for jsonp 
+           //$scope.searchMovies = function () {
+            $http.jsonp("http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json?page_limit=16&page=1&country=us&apikey=g7rx7yxzn99upr85jtnetmva&callback=JSON_CALLBACK")
+            .success(function (response) {
+                $scope.movies = response.movies;
+                console.log(response);
+            })
+          //}
+          $scope.movieDetails = function(movie) {
+            $http.jsonp("http://api.rottentomatoes.com/api/public/v1.0/movies/"+movie.id+".json?apikey=g7rx7yxzn99upr85jtnetmva&callback=JSON_CALLBACK")
+             .success(function (response) {
+              $rootScope.movie = response;
+              console.log(response);
+              $location.url("/MovieDetails");
+              })
+          }
+    });
+app.controller("MovieSearchCtrl",
+    function ($scope, $http,$location,$rootScope) {
+        //Use $http.get(url) for JSON and $http.jsonp(url) for jsonp 
+        $scope.searchMovies = function () {
+            var title = $scope.searchByTitle;
+            $http.jsonp("http://api.rottentomatoes.com/api/public/v1.0/movies.json?q=" + title + "&page_limit=10&page=1&apikey=g7rx7yxzn99upr85jtnetmva&callback=JSON_CALLBACK")
+            .success(function (response) {
+                $scope.movies = response.movies;
+                console.log(response);
+            })
+        }
+        $scope.movieDetails = function (movie) {
+            $http.jsonp("http://api.rottentomatoes.com/api/public/v1.0/movies/" + movie.id + ".json?apikey=g7rx7yxzn99upr85jtnetmva&callback=JSON_CALLBACK")
+             .success(function (response) {
+                 $rootScope.movie = response;
+                 console.log(response);
+                 $location.url("/MovieDetails");
+             })
+        }
+    });
+
+<b>HTML CODE MOVIESEARCH:</b>
+            &lt;h2&gt;Search Movie&lt;/h2&gt;
+                        &lt;div class="input-group"&gt;
+                        &lt;input type="text" class="form-control" placeholder="Search for..." ng-model="searchByTitle"&gt;
+                        &lt;span class="input-group-btn"&gt;
+                        &lt;button class="btn btn-default" type="button" ng-click="searchMovies()">Go!&lt;/button&gt;
+                        &lt;/span&gt;
+                    &lt;/div&gt;
+                        &lt;table class="table table-hover table-stripped"&gt;
+                        &lt;thead&gt;
+                        &lt;tr&gt;
+                        &lt;th>Title&lt;/th&gt;
+                       &lt;th>Rating&lt;/th&gt;
+                        &lt;th>Poster&lt;/th&gt;
+                        &lt;th>Release Date&lt;/t&gt;
+                        &lt;th>Run Time&lt;/th&gt;
+                            &lt;/tr&gt;
+                        &lt;/thead&gt;
+                       &lt;tbody&gt;
+                        &lt;tr ng-repeat="m in movies" ng-click=movieDetails(m&gt;
+                        &lt;td>{{m.title}}&lt;/td&gt;
+                       &lt;td>{{m.ratings.critics_score}}&lt;/td&gt;
+                        &lt;td&gt;
+                        &lt;img class="poster" ng-src="{{m.posters.profile}}" width="50" &gt;
+                                &lt;/t&gt;
+                        &lt;td>{{m.release_dates.theater}}&lt;/t&gt;
+                        &lt;td>{{m.runtime}}&lt;/td&gt;
+                            &lt;/tr>
+                        &lt;/tbody>
+                   &lt;/table><br />
+
+<b>HTML CODE IN THEATERS:</b>
+                         &lt;h2>In Theaters &lt;/h2>
+                         &lt;table class="table table-hover table-striped">
+                         &lt;thead>
+                         &lt;tr>
+                         &lt;th>Title &lt;/th>
+                         &lt;th>Rating &lt;/th>
+                         &lt;th>Poster &lt;/th>
+                         &lt;th>Release Date &lt;/th>
+                        &lt;th>Run Time &lt;/th>
+             &lt;h>Synopsis &lt;/h>
+                             &lt;/tr>
+                         &lt;/thead>
+                         &lt;tbody>
+                         &lt;tr ng-repeat="m in movies" ng-click=movieDetails(m)>
+                         &lt;td>{{m.title}} &lt;/td>
+                         &lt;td>{{m.ratings.critics_score}} &lt;/td>
+                         &lt;td>
+                        &lt;img class="poster" ng-src="{{m.posters.profile}}" width="50" />
+                                 &lt;/td>
+                         &lt;td>{{m.release_dates.theater}} &lt;/td>
+                         &lt;td>{{m.runtime}} &lt;/td>
+                        &lt;td>{{m.synopsis}} &lt;/td>
+                             &lt;/tr>
+                         &lt;/tbody>
+                    &lt;/table>
+
+
+        
+</pre>
+    </section>
+    </article>
+
+    <br style="clear:both" />
+    <footer>
+        <hr />
+        <h4> Source Code</h4>
+        <div>
+            <a href="../../fileview/Default.aspx?~/experiments/WEEK-10/MovieHandle.html" target="_blank">View HTML Code</a>
+        </div>
+        <div>
+            <a href="../../fileview/Default.aspx?~/experiments/WEEK-10/expr2.js" target="_blank">View JS Code</a>
+        </div>
+        <hr />
+        <h4> References</h4>
+        <div>
+            <a href="https://www.youtube.com/watch?v=PlAxG8R_zXI" target="_blank">Youtube</a>
+        </div>
+    </footer>
+    <br />
+</body>
+</html>

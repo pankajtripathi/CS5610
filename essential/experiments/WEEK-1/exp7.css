@@ -1,0 +1,14 @@
+﻿body {
+    background: #f4f4f2;
+    margin: auto;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+h1 {
+        text-align: center;
+}
+code {
+    background-color: lightgreen;
+    font-family: monospace;
+}

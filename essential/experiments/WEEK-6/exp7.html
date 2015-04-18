@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>CM APP</title>
+    <link href="content/css/bootstrap.css" rel="stylesheet" />
+    <script src="content/js/angular.min.js"></script>
+    <script src="content/js/bootstrap.js"></script>
+    <script src="content/js/jquery.js"></script>
+    <script src="content/expr4.js"></script>
+</head>
+<body ng-app="CMApp">
+    <div class="container" ng-controller="cmappController">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        <input class="form-control" ng-model="emp.name"/>
+                    </th>
+                    <th>
+                        <button class="btn btn-success pull-right" ng-click="add(emp)">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </button>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="e in employee">
+                    <td>{{e.name}}</td>
+                    <td >
+                        <button class="btn btn-warning pull-right" ng-click="select($index)">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </button>
+                        <button class="btn btn-danger pull-right" ng-click="remove($index)">
+                            <span class="glyphicon glyphicon-remove"></span> 
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>Skills</h3>
+        <div ng-show="selectedEmp.skill.length > 0">
+            <table class="table table-striped">
+                <tbody>
+                    <tr ng-repeat="s in selectedEmp.skill">
+                        <td>{{s.name}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

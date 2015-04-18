@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Finding data in MongoDB</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Finding data in MongoDB</h1><hr />
+
+        <h4>Finding a document using id</h4>
+        <img class="img-responsive" src="exp2.1.png" /><br />
+        <h5>Click <a href="http://nodejs-pankajt.rhcloud.com/developer/54fd3723687d5282e32aba21">here</a> to go the server to find value corresponding to id .</h5><br />
+
+        <h4>Finding a document using first name</h4>
+        <img class="img-responsive" src="exp2.2.png" /><br />
+        <h5>Click <a href="http://nodejs-pankajt.rhcloud.com/developer/first/Pankaj">here</a> to go the server to find value corresponding to first name .</h5><br />
+
+        <h4>Finding a document using skill</h4>
+        <img class="img-responsive" src="exp2.3.png" /><br />
+        <h5>Click <a href="http://nodejs-pankajt.rhcloud.com/developer/skill/SAS">here</a> to go the server to find value corresponding to skill.</h5><br />
+
+        <h4>Finding a document using city</h4>
+        <img class="img-responsive" src="exp2.4.png" /><br />
+        <h5>Click <a href="http://nodejs-pankajt.rhcloud.com/developer/city/New%20York">here</a> to go the server to find value corresponding to city.</h5><br />
+        <hr />
+        <div>
+            <h3><u>Code Snippet</u></h3>
+            <p>
+                In the code given below I use <b>require('mongoose')</b> to get the mongoose module in order to use it.
+                I have created a schema <b>DevSchema</b>to control the data that user enters into the database.
+                I a using <b>find()</b> function to find the values in the DB based on the input index or other required parameters as shown in the code.
+            </p><br />
+            <code>
+                &emsp; app.get('/developer/:id', function (req, res) {<br />
+                &emsp; &emsp; DevModel.findById(req.params.id, function (err, data) {<br />
+                &emsp; &emsp; res.json(data);<br />
+                &emsp; &emsp; console.log(data);<br />
+                &emsp; &emsp; });<br />
+                &emsp; });<br /><br />
+
+                &emsp; app.get('/developer/first/:name', function (req, res) {<br />
+                &emsp; &emsp; DevModel.find({ first: { "$in" : [req.params.name] }} ,function (err, data) {<br />
+                &emsp; &emsp; res.json(data);<br />
+                &emsp; &emsp; });<br />
+                &emsp; });<br /><br />
+
+                &emsp; app.get('/developer/skill/:name', function (req, res) {<br />
+                &emsp; &emsp; DevModel.find({ skill: { "$in": [req.params.name] } }, function (err, data) {<br />
+                &emsp; &emsp; res.json(data);<br />
+                &emsp; &emsp; });<br />
+                &emsp; });<br /><br />
+
+                &emsp; app.get('/developer/city/:name', function (req, res) {<br />
+                &emsp; &emsp; DevModel.find({ city: { "$in": [req.params.name] } }, function (err, data) {<br />
+                &emsp; &emsp; res.json(data);<br />
+                &emsp; &emsp; });<br />
+                &emsp; });
+
+            </code>
+            <hr />
+            <h3><u>Description</u></h3>
+            <p>
+                MongoDB is a cross-platform document-oriented database. Classified as a NoSQL database, MongoDB eschews the traditional table-based relational database structure in favor of JSON-like documents with dynamic schemas (MongoDB calls the format BSON), making the integration of data in certain types of applications easier and faster.
+                Mongoose provides a straight-forward, schema-based solution to modeling your application data and includes built-in type casting, validation, query building, business logic hooks and more, out of the box.
+                Mongoose is an elegant way of mongoDB object modelling for nodeJS.
+     
+                In this experiment, I've used find() function to find values corrsponding to city,skill,first name and id.
+            </p><hr />
+        </div>
+        <h3>Source Code</h3>
+        <div>
+            <a href="../../fileview/Default.aspx?~/experiments/WEEK-7/exp2.html" target="_blank">View HTML Code</a>
+        </div>
+        <div>
+            <a href="../../fileview/Default.aspx?~/experiments/WEEK-7/server.js" target="_blank">View Node.JS Code</a>
+        </div>
+        <hr />
+        <h3>References</h3>
+        <a href="https://www.youtube.com/watch?v=YH5sFprHgl0">Youtube Video</a><br />
+    </div>
+</body>
+</html>
+
+

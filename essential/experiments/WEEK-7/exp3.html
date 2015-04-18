@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>FindOne and Count in MongoDB</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>FindOne and Count in MongoDB</h1><hr />
+        <img class="img-responsive" src="exp3.1.png" /><br />
+        <h5>Click <a href="http://nodejs-pankajt.rhcloud.com/countDev">here</a> to go the server and get the count of entries in DB.</h5>
+        <img class="img-responsive" src="exp3.2.png" /><br />
+        <h5>Click <a href="http://nodejs-pankajt.rhcloud.com/findOneDev">here</a> to go the server and check findOne based on skill in DB.</h5>
+        <hr />
+        <div>
+            <h3><u>Code Snippet</u></h3>
+            <p>
+                In the code given below I use <b>require('mongoose')</b> to get the mongoose module in order to use it.
+                I have created a schema <b>DevSchema</b>to control the data that user enters into the database.
+                I am using <b>count()</b> function to get the total number of entries in the DB. I am using <b>findOne()</b> function to get a single value for the given query which is based on skill.
+            </p><br />
+            <code>
+                &emsp;app.get('/countDev', function (req, res) {<br />
+                &emsp;DevModel.count(function (err, data) {<br />
+                &emsp;&emsp;res.json(data);<br />
+                &emsp;&emsp;});<br />
+                &emsp;});<br /><br />
+                &emsp;.get('/findOneDev', function (req, res) {<br />
+                &emsp;&emsp;var query = DevModel.where({ skill: 'SAS' });<br />
+                &emsp;&emsp;DevModel.findOne(query,function (err, data) {<br />
+                &emsp;&emsp;res.json(data);<br />
+                &emsp;&emsp;});<br />
+                &emsp;});<br />
+            </code>
+            <hr />
+            <h3><u>Description</u></h3>
+            <p>
+                MongoDB is a cross-platform document-oriented database. Classified as a NoSQL database, MongoDB eschews the traditional table-based relational database structure in favor of JSON-like documents with dynamic schemas (MongoDB calls the format BSON), making the integration of data in certain types of applications easier and faster.
+                Mongoose provides a straight-forward, schema-based solution to modeling your application data and includes built-in type casting, validation, query building, business logic hooks and more, out of the box.
+                Mongoose is an elegant way of mongoDB object modelling for nodeJS.
+                In this experiment,as I give url with countDev as one of the parameters I will get number of entries in the DB.
+            </p><hr />
+        </div>
+        <h3>Source Code</h3>
+        <div>
+            <a href="../../fileview/Default.aspx?~/experiments/WEEK-7/exp3.html" target="_blank">View HTML Code</a>
+        </div>
+        <div>
+            <a href="../../fileview/Default.aspx?~/experiments/WEEK-7/server.js" target="_blank">View Node.JS Code</a>
+        </div>
+        <hr />
+        <h3>References</h3>
+        <a href="https://www.youtube.com/watch?v=YH5sFprHgl0">Youtube Video</a><br />
+    </div>
+</body>
+</html>
+
+

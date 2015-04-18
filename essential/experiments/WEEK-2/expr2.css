@@ -1,0 +1,46 @@
+﻿body {
+}
+.fieldLabel-1,.fieldLabel-2,.fieldLabel-3,.fieldLabel-4{
+    float:left;
+    width:100px;
+}
+@media screen and (max-width: 500px)
+{
+    body {
+        background-color:red;
+    }
+    #firstName, #lastName, #email, #pwd {
+        float:left;
+    }
+    h3 {
+        clear:both;
+    }
+    hr {
+        clear:both;
+    }
+}
+@media screen and (min-width: 700px)
+{
+    body {
+        background-color:yellow;
+    }
+    .container {
+       width:600px;
+       margin:auto;
+   }
+}
+@media screen and (min-width: 500px) and (max-width:700px)
+{
+    body {
+        background-color:green;
+    }
+    .container {
+       width:300px;
+       margin:auto;
+    } 
+}
+code {
+    background-color: lightgreen;
+    font-family: monospace;
+}
+

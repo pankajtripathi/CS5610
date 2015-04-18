@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Homepage</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+</head>
+
+<body class="container">
+    <div>
+        <h3>Please click the below link to see the experiment</h3>
+        <a href="http://myproject-pankajt.rhcloud.com/"><span style="font-size:large">Toggle button on menu page</span></a>
+    </div>
+
+    <article>
+        <div style="margin-top:50px;">
+            <h4> About the experiment</h4>
+            <div>
+                In this experiment, I have created the homepage for my project which basically has alogo which is url to homepage and sone text on the page giving info about the web site
+                In this experiment I have added a bootstrap toggle button to show and hide content
+            </div>
+        </div>
+        <hr />
+        <h4>Code Snippet</h4>
+        <section>
+            <pre id="code" style="background-color: lightgray; width: 900px; border: solid 1px black;">
+    $(function(){
+	$('#want-more').click(function() {
+	    if ( $('#want-more-text').is(':hidden')) {
+	      $('#want-more-text').slideDown('slow');
+	      $(this).text('SHOW LESS');
+	    } else {
+	      $('#want-more-text').slideUp();
+	      $(this).text('SHOW MORE');
+	    } 
+	  });
+});
+
+</pre>
+        </section>
+    </article>
+
+    <br style="clear:both" />
+    <footer>
+        <hr />
+        <h4> Source Code</h4>
+        <div>
+            <a href="../../fileview/Default.aspx?~/experiments/WEEK-8/exp4.html" target="_blank">View HTML Code</a>
+        </div>
+        <div>
+            <a href="../../fileview/Default.aspx?~/experiments/WEEK-8/index.js" target="_blank">View JS Code</a>
+        </div>
+        <h3>References</h3>
+        <div>
+            <a href="http://www.w3schools.com/htmL/" target="_blank">W3 Schools</a>
+        </div>
+    </footer>
+    <br />
+</body>
+
+</html>
+

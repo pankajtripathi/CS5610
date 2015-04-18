@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Updating a document in MongoDB</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Updating a document in MongoDB</h1><hr />
+        <img class="img-responsive" src="exp5.1.png" /><br />
+        <h5>Click <a href="http://nodejs-pankajt.rhcloud.com/devUpdate/Vikas">here</a> to go the server and update and entry in DB.</h5>
+        <hr />
+        <div>
+            <h3><u>Code Snippet</u></h3>
+            <p>
+                In the code given below I am getting the first name of the developer form the url and after fetching the name for tht particular developer I am changing his city to Boston.
+            </p><br />
+            <code>
+                &emsp;.get('/devUpdate/:name', function (req, res) {<br />
+                &emsp;&emsp;var query= {first:{ "$in" : [req.params.name] }};<br />
+                &emsp;&emsp;DevModel.findOneAndUpdate(query, { city: 'Boston' }, function (err, data) {<br />
+                &emsp;&emsp;res.json(data);<br />
+                &emsp;&emsp;});<br />
+                &emsp;});
+            </code>
+            <hr />
+            <h3><u>Description</u></h3>
+            <p>
+                MongoDB is a cross-platform document-oriented database. Classified as a NoSQL database, MongoDB eschews the traditional table-based relational database structure in favor of JSON-like documents with dynamic schemas (MongoDB calls the format BSON), making the integration of data in certain types of applications easier and faster.
+                Mongoose provides a straight-forward, schema-based solution to modeling your application data and includes built-in type casting, validation, query building, business logic hooks and more, out of the box.
+                Mongoose is an elegant way of mongoDB object modelling for nodeJS.
+                
+                In this experiment, I am updating the city for the given developer.
+            </p><hr />
+        </div>
+        <h3>Source Code</h3>
+        <div>
+            <a href="../../fileview/Default.aspx?~/experiments/WEEK-7/exp5.html" target="_blank">View HTML Code</a>
+        </div>
+        <div>
+            <a href="../../fileview/Default.aspx?~/experiments/WEEK-7/server.js" target="_blank">View Node.JS Code</a>
+        </div>
+        <hr />
+        <h3>References</h3>
+        <a href="https://www.youtube.com/watch?v=YH5sFprHgl0">Youtube Video</a><br />
+    </div>
+</body>
+</html>
+

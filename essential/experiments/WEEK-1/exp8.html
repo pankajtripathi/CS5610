@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>CSS Experiments</title>
+    <link rel="stylesheet" href="exp9.css" />
+</head>
+<body>
+    <h1>CSS Experiments</h1>
+    <hr />
+    <h3>Image- Hover effect</h3>
+    <img src="expImages/5871812-a-football-soccer-fan-has-a-header-in-mind-as-he-thinks-about-sports.jpg" />
+    <br />
+    <h3>Code Snippet</h3>
+    <code>
+        &emsp;img{<br />
+        &emsp;&emsp;opacity:1.0<br />
+        &emsp;&emsp;filter:alpha(opacity:100)<br/>
+        &emsp;}
+        <br />
+        &emsp;img:hover{<br />
+        &emsp;&emsp;opacity:0.4;<br/>
+        &emsp;&emsp;filter:alpha(opacity=50);<br />
+        &emsp;}
+    </code>
+    <h3>Description</h3>
+    <p>This example shows the effect of hovering on an image.</p>
+    <p>The image turns transparent when mouse is hovered it</p>
+    <br/>
+    <hr />
+    <h3>CSS Transformations</h3>
+    <div class="unchanged">This is unchanged div</div>
+    <div class="changed">
+            <div class="rotated">Rotated</div>
+        <h3>Code Snippet</h3>
+        <code>
+            &emsp;.rotated{<br/>
+            &emsp;&emsp;-webkit-transform: rotateX(100deg);<br />
+            &emsp;&emsp;transform: rotateX(120deg);<br/>
+            &emsp;}
+        </code>
+    </div> 
+    <div class="changed">
+            <div class="translated">Translated</div>
+        <h3>Code Snippet</h3>
+        <code>
+            &emsp;.translated{<br />
+            &emsp;&emsp;-ms-transform: translate(150px,100px);<br />
+            &emsp;&emsp;-webkit-transform: translate(150px,100px);<br />
+            &emsp;&emsp;transform: translate(150px,100px);<br />
+            &emsp;}
+        </code>
+    </div>
+    <div class="changed">
+            <div class="skew">Skewed</div>
+        <h3>Code Snippet</h3>
+        <code>
+            &emsp;.skewed{<br />
+            &emsp;&emsp;-ms-transform: skew(30deg,20deg);<br />
+            &emsp;&emsp;-webkit-transform: skew(30deg,20deg)<br />
+            &emsp;&emsp;transform: skew(30deg,20deg);<br />
+            &emsp;}
+        </code>
+    </div>
+    <h3>Description</h3>
+    <p>Various tranformatin techniques like skew, translation and rotation are showed in the example above</p>
+    <hr/>
+    <h3>CSS transitions</h3>
+    <div class="transition">Transition</div>
+    <div>
+        <h3>Code Snippet</h3>
+        <code>
+            &emsp;.transition{<br/>
+            &emsp;&emsp;width:100px;<br/>
+            &emsp;&emsp;height:100px;<br/>
+            &emsp;&emsp;background-color:blue;<br/>
+            &emsp;&emsp;-webkit-transition: width 2s;<br/>
+            &emsp;&emsp;transition: width 2s;<br/>
+            &emsp;}<br />
+            &emsp;.transition:hover{<br/>
+            &emsp;&emsp;width:200px;<br />
+            &emsp;}
+        </code>
+    </div>
+    <h3>Description</h3>
+    <p>The example above show CSS transition property</p>
+    <p>The transition takes place when mouse is hovered to the object</p>
+    <hr />
+    <h3>Source Code</h3>
+    <div>
+        <a href="../../fileview/Default.aspx?~/experiments/WEEK-1/exp8.html" target="_blank">View HTML Code</a>
+    </div>
+    <div>
+        <a href="../../fileview/Default.aspx?~/experiments/WEEK-1/exp9.css" target="_blank">View CSS Code</a>
+    </div>
+    <h3>References</h3>
+    <div>
+        <a href="http://www.w3schools.com/htmL/" target="_blank">W3 Schools</a>
+    </div>
+    
+</body>
+</html>

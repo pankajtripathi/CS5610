@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Simple Calculator</title>
+    <script src="js/angular.min.js"></script>
+    <script src="expr5.js"></script>
+    <link href="../../css/bootstrap.css" rel="stylesheet" />
+</head>
+    <body ng-app="controllerDemo">
+    <h1>Simple Calculator</h1>
+    <hr />
+    <div ng-controller="expController">
+        <input class="form-control" ng-model="num1" placeholder="Enter a number"><br />
+        <input class="form-control" ng-model="num2" placeholder="Enter a number"><br />
+        <button ng-click="add()" class="btn btn-primary">+</button>
+        <button ng-click="sub()" class="btn btn-primary">-</button>
+        <button ng-click="divide()" class="btn btn-primary">/</button>
+        <button ng-click="multiply()" class="btn btn-primary">*</button><br />
+        <b>Answer:</b> <p ng-bind="output"></p>
+    </div>
+    <hr />
+    <h3>Code Snippet</h3>
+    <p>In this code I have provided two text boxes for user to enter two numbers. Once user clicks on add,sub,multiply or divide button, appropiate function is called which perfomrs the arithmatic operation</p>
+    <code>
+        &emsp; app = angular.module("controllerDemo", []);<br />
+        &emsp;app.controller("expController",<br />
+        &emsp;function ($scope) {<br />
+        &emsp;&emsp;$scope.add = function () {<br />
+        &emsp;&emsp;var num1 = $scope.num1;<br />
+        &emsp;&emsp;var num2 = $scope.num2;<br />
+        &emsp;&emsp;$scope.output = parseInt(num1) + parseInt(num2);<br />
+        &emsp;}<br />
+        &emsp;$scope.sub = function () {<br />
+        &emsp;&emsp;var num1 = $scope.num1;<br />
+        &emsp;&emsp;var num2 = $scope.num2;<br />
+        &emsp;&emsp;$scope.output = parseInt(num1) - parseInt(num2);<br />
+        &emsp;}<br />
+        &emsp;$scope.divide = function () {<br />
+        &emsp;&emsp;var num1 = $scope.num1;<br />
+        &emsp;&emsp;var num2 = $scope.num2;<br />
+        &emsp;&emsp;$scope.output = parseInt(num1) / parseInt(num2);<br />
+        &emsp;}<br />
+        &emsp;$scope.multiply = function () {<br />
+        &emsp;&emsp;var num1 = $scope.num1;<br />
+        &emsp;&emsp;var num2 = $scope.num2;<br />
+        &emsp;&emsp;$scope.output = parseInt(num1) * parseInt(num2);<br />
+        &emsp;&emsp;}<br />
+        &emsp;});
+    </code> 
+    <hr />
+    <h3>Description</h3>
+    <p>AngularJS, commonly referred to as Angular, is an open-source web application framework maintained by Google and a community of individual developers and corporations to address many of the challenges encountered in developing single-page applications. Its goal is to simplify both development and testing of such applications by providing a framework for client-side model–view–controller (MVC) architecture, along with components commonly used in rich internet applications.</p>
+    <p>In this experiment I am displaying two textboxes for user to enter the numbers. For the number entered and for the button pressed of any aritnmatic operator, appropiate computation takes place.</p>
+    <hr />
+        <h3>Source Code</h3>
+        <div>
+            <a href="../../fileview/Default.aspx?~/experiments/WEEK-4/exp5.html" target="_blank">View HTML Code</a>
+        </div>
+        <div>
+            <a href="../../fileview/Default.aspx?~/experiments/WEEK-4/expr5.js" target="_blank">View jQuery Code</a>
+        </div>
+        <h3>References</h3>
+        <div>
+            <a href="https://www.youtube.com/watch?v=KCTKd5ZmXMQ" target="_blank">Youtube</a>
+        </div>
+</body>
+</html>

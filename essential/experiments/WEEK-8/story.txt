@@ -1,0 +1,6 @@
+﻿../../story/whatisnext.htm?../experiments/WEEK-8/      What is Next?
+exp1.html                                          Homepage
+exp2.html				                           Responsive screen
+exp3.html				                           Responsive Menu
+exp4.html                                          Added a toggle button on menu page
+exp5.html                                          Sign up and login page

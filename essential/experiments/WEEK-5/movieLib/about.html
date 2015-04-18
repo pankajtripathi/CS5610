@@ -1,0 +1,13 @@
+﻿<h2>Favorite Movies</h2>
+<table class="table table-stripped">
+    <tbody>
+        <tr ng-repeat="m in favMovies">
+            <td>{{m.title}}</td>
+            <td>{{m.rating}}</td>
+            <td>
+                <img class="poster" ng-src="{{m.urlPoster}}" width="50" />
+                {{m.plot}}
+            </td>               
+        </tr>
+    </tbody>
+</table>

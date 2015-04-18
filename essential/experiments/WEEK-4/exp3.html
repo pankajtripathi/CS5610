@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Use of Controller</title>
+    <script src="js/angular.min.js"></script>
+    <script src="expr3.js"></script>
+</head>
+<body ng-app="controllerDemo">
+    <h1>AJAX - Use of Controller</h1>
+    <hr />
+    <div ng-controller="expController">
+        <label for="first">First Name </label>
+        <input type="text" id="firstName" ng-model="name.fName"  /><br /><br />
+        <label for="last">Last Name </label>
+        <input type="text" id="lastName" ng-model="name.lName" /><br /><br />
+        <label>Full Name</label>&nbsp; {{name.fName + " " + name.lName}}
+    </div>
+    <hr />
+    <h3>Code Snippet</h3>
+    <p>In the code given below I have created an angularJS app called controllerDemo. For this app I have created an app controller which fetches data from the model and then it is displayed on the page.</p>
+    <p>Funtion <b>function ($scope)</b> defines scope for model. The data for this is obtained as the user types data in the textbox which is later dispalyed</p>
+    <code>
+        &emsp;var app = angular.module("controllerDemo", []);<br />
+        &emsp;app.controller("expController",<br />
+        &emsp;function ($scope) {<br />
+        &emsp;&emsp;console.log("Controller Demo");<br />
+        &emsp;&emsp;var name = { fName: "", lName: "" };<br />
+        &emsp;&emsp;$scope.name = name;<br />
+        &emsp;});
+    </code>
+    <hr />
+    <h3>Description</h3>
+    <p>AngularJS, commonly referred to as Angular, is an open-source web application framework maintained by Google and a community of individual developers and corporations to address many of the challenges encountered in developing single-page applications. Its goal is to simplify both development and testing of such applications by providing a framework for client-side model–view–controller (MVC) architecture, along with components commonly used in rich internet applications.</p>
+    <p>In this experiment I have provided two textboxes wherein user will enter his/her name. The name entered will be displayed as a single text(fullname of user)</p>
+    <hr />
+    <h3>Source Code</h3>
+    <div>
+        <a href="../../fileview/Default.aspx?~/experiments/WEEK-4/exp3.html" target="_blank">View HTML Code</a>
+    </div>
+    <div>
+        <a href="../../fileview/Default.aspx?~/experiments/WEEK-4/expr3.js" target="_blank">View jQuery Code</a>
+    </div>
+    <h3>References</h3>
+    <div>
+        <a href="https://www.youtube.com/watch?v=KCTKd5ZmXMQ" target="_blank">Youtube</a>
+    </div>
+</body>
+</html>

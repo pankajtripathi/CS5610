@@ -1,0 +1,175 @@
+﻿
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Homepage</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+</head>
+
+<body class="container">
+    <div>
+        <h3>Please click the below link to see the experiment</h3>
+        <a href="http://myproject-pankajt.rhcloud.com/"><span style="font-size:large">Sign up and login page</span></a>
+    </div>
+
+    <article>
+        <div style="margin-top:50px;">
+            <h4> About the experiment</h4>
+            <div>
+                In this experiment, I have created bootstrap modal views for sign up and login forms. They are basically modal forms which are added to homepage and accessible via the links provided on the homepage.
+            </div>
+        </div>
+        <hr />
+        <h4>Code Snippet</h4>
+        <section>
+            <pre id="code" style="background-color: lightgray; width: 900px; border: solid 1px black;">
+ &lt;div class="modal fade bs-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"&gt;
+ &lt;div class="modal-dialog modal-sm"&gt;
+ &lt;div class="modal-content"&gt;
+ &lt;br&gt;
+ &lt;div class="bs-example bs-example-tabs"&gt;
+&lt;ul id="myTab" class="nav nav-tabs"&gt;
+ &lt;li class="active"&gt;&lt;a href="#signin" data-toggle="tab" &gt;sign in />&lt;a&gt; &lt;/li&gt;
+ &lt;li class=""&gt;&lt;a href="#signup" data-toggle="tab" &gt;register&lt; />a&gt;&lt;/li&gt;
+ &lt;li class=""&gt;&lt;a href="#why" data-toggle="tab" &gt;why?&lt; />a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+ &lt;/div&gt;
+&lt;div class="modal-body"&gt;
+&lt;div id="myTabContent" class="tab-content"&gt;
+&lt;div class="tab-pane fade in" id="why"&gt;
+&lt;p>We need this information so that you can receive access to the site and its content. Rest assured your information will not be sold, traded, or given to anyone.&lt;/p&gt;
+&lt;/div&gt;
+ &lt;div class="tab-pane fade active in" id="signin"&gt;
+  &lt;form class="form-horizontal"&gt;
+ &lt;fieldset&gt;
+            <!-- Sign In Form -->
+            <!-- Text input-->
+&lt;div class="control-group">
+ &lt;label class="control-label" for="userid">Alias: &lt;/label>
+&lt;div class="controls">
+&lt;input required="" id="userid" name="userid" type="text" class="form-control" placeholder="JoeSixpack" class="input-medium" required="">
+ &lt;/div>
+&lt;/div>
+            <!-- Password input-->
+ &lt;div class="control-group">
+ &lt;label class="control-label" for="passwordinput">Password: &lt;/label>
+ &lt;div class="controls">
+ &lt;input required="" id="passwordinput" name="passwordinput" class="form-control" type="password" placeholder="********" class="input-medium">
+ &lt;/div>
+  &lt;/div>
+            <!-- Multiple Checkboxes (inline) -->
+&lt;div class="control-group">
+ &lt;label class="control-label" for="rememberme"> &lt;/label>
+ &lt;div class="controls">
+&lt;label class="checkbox inline" for="rememberme-0">
+ &lt;input type="checkbox" name="rememberme" id="rememberme-0" value="Remember me">
+  Remember me
+ &lt;/label>
+ &lt;/div>
+ &lt;/div>
+            <!-- Button -->
+ &lt;div class="control-group">
+&lt;label class="control-label" for="signin"> &lt;/label>
+&lt;div class="controls">
+&lt;button id="signin" name="signin" class="btn btn-success">Sign In &lt;/button>
+&lt;/div>
+ &lt;/div>
+&lt;/fieldset>
+&lt;/form>
+&lt;/div>
+&lt;div class="tab-pane fade" id="signup">
+ &lt;form class="form-horizontal">
+  &lt;fieldset>
+            <!-- Sign Up Form -->
+            <!-- Text input-->
+                             &lt;div class="control-group">
+                             &lt;label class="control-label" for="Email">Email: &lt;/label>
+                             &lt;div class="controls">
+                             &lt;input id="Email" name="Email" class="form-control" type="text" placeholder="JoeSixpack@sixpacksrus.com" class="input-large" required="">
+                               &lt;/div>
+                             &lt;/div>
+            
+            <!-- Text input-->
+                             &lt;div class="control-group">
+                             &lt;label class="control-label" for="League">Favourite League: &lt;/label>
+                             &lt;div class="controls">
+                             &lt;input id="League" name="League" class="form-control" type="text" placeholder="Premier League" class="input-large" required="">
+                               &lt;/div>
+                             &lt;/div>
+            
+            <!-- Text input-->
+                             &lt;div class="control-group">
+                             &lt;label class="control-label" for="Team">Favourite Team: &lt;/label>
+                             &lt;div class="controls">
+                            &lt;input id="Team" name="Team" class="form-control" type="text" placeholder="Manchester United" class="input-large" required="">
+                               &lt;/div>
+                             &lt;/div>
+            
+            <!-- Text input-->
+                             &lt;div class="control-group">
+                             &lt;label class="control-label" for="userid">Alias: &lt;/label>
+                            &lt;div class="controls">
+                            &lt;input id="userid" name="userid" class="form-control" type="text" placeholder="JoeSixpack" class="input-large" required="">
+                              &lt;/div>
+                            &lt;/div>
+            
+            <!-- Password input-->
+                             &lt;div class="control-group">
+                             &lt;label class="control-label" for="password">Password &lt;/label>
+                            &lt;div class="controls">
+                             &lt;input id="password" name="password" class="form-control" type="password" placeholder="********" class="input-large" required="">
+                             &lt;em>1-8 Character &lt;/em>
+                              &lt;/div>
+                             &lt;/div>
+            
+            <!-- Text input-->
+                            &lt;div class="control-group">
+                             &lt;label class="control-label" for="reenterpassword">Re-Enter Password: &lt;/label>
+                             &lt;div class="controls">
+                            &lt;input id="reenterpassword" class="form-control" name="reenterpassword" type="password" placeholder="********" class="input-large" required="">
+                              &lt;/div>
+                             &lt;/div>
+            
+            <!-- Button -->
+                             &lt;div class="control-group">
+                             &lt;label class="control-label" for="confirmsignup"> &lt;/label>
+                             &lt;div class="controls">
+                             &lt;button id="confirmsignup" name="confirmsignup" class="btn btn-success">Sign Up &lt;/button>
+                               &lt;/div>
+                            &lt;/div>
+                            &lt;/fieldset>
+                            &lt;/form>
+                       &lt;/div>
+                     &lt;/div>
+                       &lt;/div>
+                             &lt;div class="modal-footer">
+                             &lt;center>
+                             &lt;button type="button" class="btn btn-default" data-dismiss="modal">Close &lt;/button>
+                        &lt;/center>
+</pre>
+        </section>
+    </article>
+
+    <br style="clear:both" />
+    <footer>
+        <hr />
+        <h4> Source Code</h4>
+        <div>
+            <a href="../../fileview/Default.aspx?~/experiments/WEEK-8/exp5.html" target="_blank">View HTML Code</a>
+        </div>
+        <div>
+            <a href="../../fileview/Default.aspx?~/experiments/WEEK-8/homePage.css" target="_blank">View CSS Code</a>
+        </div>
+        <h3>References</h3>
+        <div>
+            <a href="http://www.w3schools.com/htmL/" target="_blank">W3 Schools</a>
+        </div>
+    </footer>
+    <br />
+</body>
+
+</html>
+
+

@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Angular Routing - Demo</title>
+    <link href="../../css/bootstrap.css" rel="stylesheet" />
+    <link href="../../css/bootstrap-theme.css" rel="stylesheet" />
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.js"></script>
+    <script src="expr3.js"></script>
+</head>
+<body ng-app="RouteApp">
+    <div class="container">
+        <h1>Angular Routing - Demo</h1>
+        <nav>
+            <a href="#/home">Home</a>
+            <a href="#/about">About</a>
+            <a href="#/contact">Contact</a>
+        </nav>
+    </div>
+    <hr />
+    <div ng-view></div>
+    <h3>Code Snippet</h3>
+    <p>Ih the code below I have created diffrent html pages and I am routing between them. The code for routing to home page and profile page is given below.Each page will have its own content which will be served to the user.</p>
+    <code>
+        &emsp;var app = angular.module("RouteApp", ['ngRoute']);<br /><br />
+        &emsp;app.config(['$routeProvider',<br />
+        &emsp;function ($routeProvider) {<br />
+        &emsp;&emsp;$routeProvider.<br />
+        &emsp;&emsp;when('/home', {<br />
+        &emsp;&emsp;templateUrl: 'partials/home.html'<br />
+        &emsp;}).<br />
+        &emsp;when('/about', {<br />
+        &emsp;&emsp;templateUrl: 'partials/about.html'<br />
+        &emsp;}).<br />
+        &emsp;&emsp;when('/contact', {<br />
+        &emsp;&emsp;templateUrl: 'partials/contact.html'<br />
+        &emsp;}).<br />
+        &emsp;otherwise({<br />
+        &emsp;&emsp;redirectTo: '/home'<br />
+        &emsp;&emsp;});<br />
+        &emsp;}]);
+    </code>
+    <hr />
+    <h3>Description</h3>
+    <p>AngularJS, commonly referred to as Angular, is an open-source web application framework maintained by Google and a community of individual developers and corporations to address many of the challenges encountered in developing single-page applications. Its goal is to simplify both development and testing of such applications by providing a framework for client-side model–view–controller (MVC) architecture, along with components commonly used in rich internet applications.</p>
+    <p>In this experiment I am routing between various html pages from a single html page. This routing is achieved with the help of model ngRoute</p>
+    <hr />
+    <h3>Source Code</h3>
+    <div>
+        <a href="../../fileview/Default.aspx?~/experiments/WEEK-5/exp3.html" target="_blank">View HTML Code</a>
+    </div>
+    <div>
+        <a href="../../fileview/Default.aspx?~/experiments/WEEK-5/expr3.js" target="_blank">View AngularJS Code</a>
+    </div>
+    <hr />
+    <h3>References</h3>
+    <div>
+        <a href="https://www.youtube.com/watch?v=PlAxG8R_zXI" target="_blank">Youtube</a>
+    </div>
+</body>
+</html>

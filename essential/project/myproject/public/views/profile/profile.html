@@ -1,0 +1,50 @@
+<link href="../css/movieDetail.css" rel="stylesheet" >
+<div class="container">
+<h2>My Profile</h2>
+<br><br>
+
+<div>
+<h3>Profile Details</h3>
+</div>
+
+	<table class="table table-striped">
+		<tbody>
+		
+			<tr>
+            <th>First Name:</th>
+            <td>{{currentUser.firstname}}</td>
+			</tr>
+			
+			<tr>
+            <th>Last Name:</th>
+            <td>{{currentUser.lastname}}</td>
+			</tr>
+			
+			<tr>
+			<th>Username:</th>
+            <td>{{currentUser.username}}</td>
+			</tr>
+			
+			<tr>
+			<th>Email Id:</th>
+            <td>{{currentUser.email}}</td>
+			</tr>
+			
+		</tbody>
+	</table>
+
+	<div>
+		<p>Let's get started and explore the movie world.....Search and
+			add movies to your watch list {{currentUser.firstName}}</p>
+	</div>
+
+	<div>
+		<div id="review-button">
+			<button ng-click="myMovie(currentUser)" class="btn btn-primary">
+				ADD MOVIES TO WATCH LIST</button>
+		</div>
+	</div>
+	
+</div>
+
+

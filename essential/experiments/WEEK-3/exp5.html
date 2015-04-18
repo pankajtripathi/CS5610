@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Calculator using jQuery</title>
+    <link rel="stylesheet" href="jQuery/css/jquery-ui.css" />
+    <script src="jQuery/js/jquery.js"></script>
+    <script src="jQuery/js/jquery-ui.js"></script>
+    <script src="expr5.js"></script>
+</head>
+<body>
+    <h1>Accordion using jQuery</h1>
+    <hr />
+    <div id="accordion">
+        <h3>Man Utd</h3>
+        <div>
+            <img src="../WEEK-1/expImages/man-utd.jpg" />
+        </div>
+        <h3>Barcelona</h3>
+        <div>
+           <img src="../WEEK-1/expImages/barca.jpg" />
+        </div>
+        <h3>Juventus</h3>
+        <div>
+            <img src="../WEEK-1/expImages/juve.jpg"/>
+        </div>
+        <h3>Borussia Dortmund</h3>
+        <div>
+           <img src="../WEEK-1/expImages/bvb.jpg" />
+        </div>
+    </div>
+    <br />
+    <h3>Code Snippet</h3>
+    <p>In the below given code I create an accordion of images. As shown below I have written a jQuery function which for div tag with class accordion when used with function .accrodion() creates an accordion of items.</p>
+    <p>In the example below I have created an accordion of image using code <b>$("#accordion").accordion({</b></p>
+    <code>
+        &emsp;$(function () {<br />
+        &emsp;&emsp;$("#accordion").accordion({<br />
+        &emsp;&emsp;heightStyle: "content"<br />
+        &emsp;&emsp;});<br />
+        &emsp;});<br />
+    </code>
+    <h3>Description</h3>
+    <p>The above example illustrates an accordion using jquery. The above example show that using jQuery function .accordion() we can create an accordion of item.</p>
+    <p>In the above example we have crated an accordion of images similarly we can create an accordion of text, pragraphs and other contents to make it much more presentable </p>
+    <hr />
+    <h3>Source Code</h3>
+    <div>
+        <a href="../../fileview/Default.aspx?~/experiments/WEEK-3/exp5.html" target="_blank">View HTML Code</a>
+    </div>
+    <div>
+        <a href="../../fileview/Default.aspx?~/experiments/WEEK-3/expr5.js" target="_blank">View jQuery Code</a>
+    </div>
+    <h3>References</h3>
+    <div>
+        <a href="http://jqueryui.com/" target="_blank">jqueryui.com</a>
+    </div>
+</body>
+</html>

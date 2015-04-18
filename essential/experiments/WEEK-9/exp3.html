@@ -1,0 +1,100 @@
+﻿
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Contact Page </title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+</head>
+
+<body class="container">
+    <div>
+        <h3>Please click the below link to see the experiment</h3>
+        <a href="http://myproject-pankajt.rhcloud.com/"><span style="font-size:large">Responsive screen for contact page</span></a>
+    </div>
+
+    <article>
+        <div style="margin-top:50px;">
+            <h4> About the experiment</h4>
+            <div>
+                In this experiment, I have made my contact page responsive to different screen sizes making it easily accessible on different screens.
+            </div>
+        </div>
+        <hr />
+        <h4>Code Snippet</h4>
+        <section>
+            <pre id="code" style="background-color: lightgray; width: 900px; border: solid 1px black;">
+@media ( min-width : 1200px) .container {
+	width:1170px;
+}
+@media ( min-width : 992px) .container {
+	width:970px;
+}
+@media ( min-width : 768px) .container {
+	width:750px;
+}
+@media screen and ( max-width : 992px) {
+	h1 {
+		line-height: 55px;
+		font-size: 80px;
+		padding-top: 60px;
+		margin-left: 15px;
+	}
+	.navbar-collapse {
+		box-shadow: none;
+	}
+	
+	.map-image{
+	     padding: auto;
+	}
+}
+@media screen and (max-width : 768px){
+  .nav > li > a{
+       border-bottom:1px solid #f1f4f7;
+       line-height: 20px;
+  }
+  .logo-img{
+    margin-left:-30px;
+    width:65px;
+    height:65px;
+  }
+  
+  .navbar-toggle{
+    margin-right: 5px;
+  }
+  
+  .collapse navbar-collapse{
+    border-left-width: -10px;
+  }
+  
+  	.map-image{
+	    padding: auto;
+	}
+}
+</pre>
+        </section>
+    </article>
+
+    <br style="clear:both" />
+    <footer>
+        <hr />
+        <h4> Source Code</h4>
+        <div>
+            <a href="../../fileview/Default.aspx?~/experiments/WEEK-9/exp3.html" target="_blank">View HTML Code</a>
+        </div>
+        <div>
+            <a href="../../fileview/Default.aspx?~/experiments/WEEK-9/contact.css" target="_blank">View CSS Code</a>
+        </div>
+        <h3>References</h3>
+        <div>
+            <a href="http://www.w3schools.com/htmL/" target="_blank">W3 Schools</a>
+        </div>
+    </footer>
+    <br />
+</body>
+
+</html>
+
+
+

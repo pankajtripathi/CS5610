@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Form using NodeJS</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+</head>
+<body>
+    <div class="container">
+        <h2>Form using NodeJS</h2><hr />
+        <h5>Openshift URL:</h5> <a href="http://nodejs-pankajt.rhcloud.com/">http://nodejs-pankajt.rhcloud.com/</a><br /><br />
+        <img class="img-responsive" src="Screen Shot 2015-03-02 at 2.54.38 PM.png" />
+        <hr />
+        <div>
+            <h3><u>Code Snippet</u></h3>
+            <p>
+                Server-Side Code:<br />
+                Express is the framework used here which is declared as required, require('express') will import the require library to run the application using Express framework.
+                We then use the <code>app</code> namespace to direct the response to the default "index" html page in the public directory.<br />
+                Client-Side Code:<br />
+                In the client side, I've used the angular JS and creating a form which will display all the detials obtained from the server.js ie the server.
+                I have created an array called employee  on server side which I am accessing using angularJS through a html form.
+            </p><br />
+            <code>
+                <u>Client-Side Javascript Code</u><br />
+                &emsp;app = angular.module("CMApp", []);<br />
+                &emsp;app.controller("cmappController", function ($scope, $http) {<br />
+                &emsp;&emsp;$scope.selectedEmp = null;<br />
+                &emsp;&emsp;$scope.selectedIdx = null;<br />
+                &emsp;&emsp;$scope.select = function (index)<br />
+                &emsp;&emsp;{<br />
+                &emsp;&emsp;&emsp;$scope.selectedIdx=index;<br />
+                &emsp;&emsp;&emsp;$scope.selectedEmp = $scope.employee[index];<br />
+                &emsp;&emsp;}<br />
+                &emsp;&emsp;$scope.add = function (emp) {<br />
+                &emsp;&emsp;&emsp;console.log(emp);<br />
+                &emsp;&emsp;&emsp;$http.post("/api/employee/", emp)<br />
+                &emsp;&emsp;&emsp;.success(function (response)<br />
+                &emsp;&emsp;{<br />
+                &emsp;&emsp;&emsp;$scope.employee = response;<br />
+                &emsp;&emsp;});<br />
+                &emsp;&emsp;}<br />
+                &emsp;&emsp;$scope.remove = function (index) {<br />
+                &emsp;&emsp;&emsp;$http.delete("/api/employee/" + index)<br />
+                &emsp;&emsp;&emsp;.success(function (response)<br />
+                &emsp;&emsp;{<br />
+                &emsp;&emsp;&emsp;$scope.employee = response;<br />
+                &emsp;&emsp;});<br />
+                &emsp;&emsp;}<br />
+                &emsp;&emsp;$http.get("/api/employee")<br />
+                &emsp;&emsp;.success(function (response)<br />
+                &emsp;&emsp;{<br />
+                &emsp;&emsp;&emsp;$scope.employee = response;<br />
+                &emsp;&emsp;});
+                &emsp;});<br />
+                <u>Server-Side JS code</u><br />
+                &emsp;var express = require('express');<br />
+                &emsp;var app = express();<br />
+                &emsp;var bodyParser = require('body-parser');<br />
+                &emsp;var multer = require('multer');<br />
+                &emsp;app.use(bodyParser.json()); // for parsing application/json<br />
+                &emsp;app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded<br />
+                &emsp;app.use(multer()); // for parsing multipart/form-data<br />
+                &emsp;app.use(express.static(__dirname + '/public'));<br />
+                &emsp;var employee =[<br />
+                &emsp;&emsp;{name:"Pankaj", skill:[{name: "JAVA"},{name:"WEB DEV"},{name:"DB"}]},<br />
+                &emsp;&emsp;{name:"Kartik", skill:[{name: "JAVA"},{name:"SAS"},{name:"DB"}]},<br />
+                &emsp;&emsp;{name:"Vikas", skill:[{name: "JAVA"},{name:"WEB DEV"},{name:"DB"}]},<br />
+                &emsp;&emsp;{name:"Abhishek", skill:[{name:"WEB DEV"},{name:"DB"}]},<br />
+                &emsp;&emsp;{name:"Shakti", skill:[{name: "JAVA"},{name:"WEB DEV"},{name:"DB"},{name:"AI"}]}<br />
+                &emsp;];<br />
+                &emsp;app.delete('/api/employee/:index', function(req,res){<br />
+                &emsp;&emsp;employee.splice(req.params.index,1);<br />
+                &emsp;&emsp;res.json(employee);<br />
+                &emsp;});<br />
+                &emsp;app.post('/api/employee/', function(req,res){<br />
+                &emsp;&emsp;employee.push(req.body);<br />
+                &emsp;&emsp;res.json(employee);<br />
+                &emsp;});
+            </code>
+            <hr />
+        </div>
+        <h3><u>Description</u></h3>
+        <p>
+            Node.js is an open source, cross-platform runtime environment for server-side and networking applications.
+            Node.js applications are written in JavaScript, and can be run within the Node.js runtime on OS X, Microsoft Windows, Linux and FreeBSD.
+            Node.js provides an event-driven architecture and a non-blocking I/O API that optimizes an application's throughput and scalability.
+            These technologies are commonly used for real-time applications.
+            Node.js uses the Google V8 JavaScript engine to execute code, and a large percentage of the basic modules are written in JavaScript.
+            Node.js contains a built-in library to allow applications to act as a Web server without software such as Apache HTTP Server or IIS.
+            You can download NodeJS from <a href="http://nodejs.org/">here</a>.<br />
+            This experiment is in continuation with the previous experiment of returning the "index" page to the user.
+            I've created a simple form using NodeJS which can add, delete, edit particular fields. This page is persisted on the server
+            meaning that if the page is refereshed the changes are saved and you can view it just by refreshing the page.
+        </p><hr />
+        <h3>Source Code</h3>
+        <div>
+            <a href="../../fileview/Default.aspx?~/Experiments/WEEK-6/exp4.html">HTML Source Code</a><br />
+        </div>
+        <hr />
+        <h3>References</h3>
+        <a href="https://www.youtube.com/watch?v=Lnd_uSEpCdo">Youtube Video</a><br />
+        <a href="http://getbootstrap.com/examples/starter-template/">Bootstrap CSS code</a>
+    </div>
+</body>
+</html>

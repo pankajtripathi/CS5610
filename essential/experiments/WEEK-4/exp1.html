@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>AJAX Demo</title>
+    <script src="../../js/jquery.js"></script>
+    <script src="expr1.js"></script>
+</head>
+<body>
+    <h1>AJAX Demo</h1>
+    <hr />
+    <input id="title" placeholder="title" />
+    <button id="movieInfo">MOVIE TITLE</button>
+    <table>
+        <thead>
+        </thead>
+        <tbody id="movies">
+            <tr class="template">
+                <td class="title">American Sniper</td>
+                <td class="rating">7.0</td>
+                <td>
+                    <img class="moviePoster" src="http://ia.media-imdb.com/images/M/MV5BMTkxNzI3ODI4Nl5BMl5BanBnXkFtZTgwMjkwMjY4MjE@._V1_SX214_AL_.jpg" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <hr />
+    <h3>Code Snippet</h3>
+    <p>In this experiment I have written a jQuery function using which I will fetch the title entered by the user as an input. Once the title of the movie is provided, for that movie using ajax I will fetch all the details from imdb.com.</p>
+    <p>The data type of the data obtained is JSONP. Once the data is obtained in JSONP format the data is displayed in a tabular format as shownin the code.</p>
+    <code>
+        &emsp;$(function () {<br />
+        &emsp;&emsp;$("#movieInfo").click(function () {<br />
+        &emsp;&emsp;var title = $("#title").val();<br />
+        &emsp;&emsp;$.ajax({<br />
+        &emsp;&emsp;url: "http://www.myapifilms.com/imdb?title="+title+"&format=JSONP&aka=0&business=0&seasons=0&seasonYear=0&technical=0&filter=N&exactFilter=0&limit=10&lang=en-us&actors=N&biography=0&trailer=0&uniqueName=0&filmography=0&bornDied=0&starSign=0&actorActress=0&actorTrivia=0&movieTrivia=0&awards=0&moviePhotos=N&movieVideos=N",<br />
+        &emsp;&emsp;dataType: "jsonp",<br />
+        &emsp;&emsp;success: displayMovies<br />
+        &emsp;&emsp;});<br />
+        &emsp;&emsp;})<br />
+        &emsp;});<br />
+        &emsp;function displayMovies(movies)<br />
+        &emsp;&emsp;{<br />
+        &emsp;&emsp;var parent = $("#movies");<br />
+        &emsp;&emsp;var temp = parent.find(".template");<br />
+        &emsp;&emsp;parent.empty();<br />
+        &emsp;&emsp;for(var m in movies)<br />
+        &emsp;&emsp;{<br />
+        &emsp;&emsp;var movie = (movies[m]);<br />
+        &emsp;&emsp;var titles = movie.title;<br />
+        &emsp;&emsp;var ratings = movie.rating;<br />
+        &emsp;&emsp;var poster = movie.urlPoster;<br />
+        &emsp;&emsp;var item = temp.clone();<br />
+        &emsp;&emsp;item.find(".title").html(titles);<br />
+        &emsp;&emsp;item.find(".rating").html(ratings);<br />
+        &emsp;&emsp;item.find(".moviePoster").attr("src", poster);<br />
+        &emsp;&emsp;parent.append(item);<br />
+        &emsp;&emsp;}<br />
+        &emsp;}
+    </code>
+    <hr />
+    <h3>Description</h3>
+    <p>In the above example using ajax I have fetched data from imdb for a movie title. All the data corressponding to a particular title is fetched from imdb.com and then it is displayed in tabular format.</p>
+    <p>The data displayed in tabular format includes title of the movies, its imdb rating and also it poster. The data dispalyed is of type JSONP which returns data as function which is rendered on the page by iterating through the parent data obtained</p>
+    <hr />
+    <h3>Source Code</h3>
+    <div>
+        <a href="../../fileview/Default.aspx?~/experiments/WEEK-4/exp1.html" target="_blank">View HTML Code</a>
+    </div>
+    <div>
+        <a href="../../fileview/Default.aspx?~/experiments/WEEK-4/expr1.js" target="_blank">View jQuery Code</a>
+    </div>
+    <h3>References</h3>
+    <div>
+        <a href="http://www.w3schools.com/htmL/" target="_blank">W3 Schools</a>
+    </div>
+    <div>
+        <a href="https://www.youtube.com/watch?v=mErJ3HFWZHs" target="_blank">Youtube</a>
+    </div>
+</body>
+</html>

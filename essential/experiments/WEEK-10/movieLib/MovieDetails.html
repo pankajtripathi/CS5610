@@ -1,0 +1,26 @@
+﻿<link href="expr2.css" rel="stylesheet" />
+<h2>MovieDetails</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Rating</th>
+            <th>Poster</th>
+            <th>Release Date</th>
+            <th>Run Time</th>
+            <th>Synopsis</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{movie.title}}</td>
+            <td>{{movie.ratings.critics_score}}</td>
+            <td>
+                <img class="poster" ng-src="{{movie.posters.profile}}" width="50" />
+            </td>
+            <td>{{movie.release_dates.theater}}</td>
+            <td>{{movie.runtime}}</td>
+            <td>{{movie.synopsis}}</td>
+        </tr>
+    </tbody>
+</table>

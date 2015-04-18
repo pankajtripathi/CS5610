@@ -1,0 +1,19 @@
+﻿body {
+    font-style:italic;
+    border:0px;
+    background-color:gray;
+}
+img{
+    border:solid;
+    border-color:black;
+    border-radius:inherit;
+}
+.top-header{
+    color:white;
+}
+.main-header{
+    color:green;
+}
+#para-one{
+    font-variant-caps:all-small-caps;
+}

@@ -1,0 +1,11 @@
+﻿../story/whatisnext.htm?../experiments/                     What is Next?
+../story/index.htm?../experiments/WEEK-1/	                  Week1-HTML and CSS experiments
+../story/index.htm?../experiments/WEEK-2/	                  Week2-Responsive Design
+../story/index.htm?../experiments/WEEK-3/                     Week3-jQuery
+../story/index.htm?../experiments/WEEK-4/                     Week4-AJAX,JSON,AngularJS
+../story/index.htm?../experiments/WEEK-5/                     Week5-AngularJS: getting data from server and routing
+../story/index.htm?../experiments/WEEK-6/                     Week6-NodeJS
+../story/index.htm?../experiments/WEEK-7/                     Week7-MongoDB and Mongoose
+../story/index.htm?../experiments/WEEK-8/                     Week8-Project related experiments
+../story/index.htm?../experiments/WEEK-9/                     Week9-Project related experiments
+../story/index.htm?../experiments/WEEK-10/                    Week10-Project related experiments

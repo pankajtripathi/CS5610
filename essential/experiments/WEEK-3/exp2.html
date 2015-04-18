@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>jQuery variable and control loop</title>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="expr2.js"></script>
+</head>
+<body>
+    <h1>jQuery variable and control loop</h1>
+    <hr />
+    <h3>Actor's Name</h3>
+    <div id="actor">
+        <span id="firstName"></span>
+        <span id="lastName"></span>
+    </div>
+    <table id="actors">
+
+    </table>
+    <hr />
+    <h3>Code Snippet</h3>
+    <p>In the below gien code I have created two variables <b>fName</b> and <b>lName</b> which are assigned with some value and then these values are displayed on the web page by foloowing assignment <b> fName = actorDom.find("#firstName")</b> and code <b>fName.html(actor.fName)</b></p>
+    <p>Similarly I have created an array of values actorList which I have displayed on the web page using table tag</p>
+    <code>
+        &emsp;&emsp;var actor = {<br />
+        &emsp;fName: "Christian",<br />
+        &emsp;lName: "Bale"<br />
+        &emsp;};<br />
+        &emsp;var actorDom = $("#actor");<br />
+        &emsp;var fName = actorDom.find("#firstName");<br />
+        &emsp;var lName = actorDom.find("#lastName");<br />
+        &emsp;fName.html(actor.fName);<br />
+        &emsp;&emsp;lName.html(actor.lName);<br />
+        &emsp;&emsp;var actorList = [<br />
+        &emsp;{ fName: "Learnado", lName: "DiCaprio" },<br />
+        &emsp;{ fName: "Marlon", lName: "Brando" },<br />
+        &emsp;{ fName: "Robert", lName: "DeNiro" },<br />
+        &emsp;{ fName: "Al", lName: "Pacino" },<br />
+        &emsp;];<br />
+        &emsp;var table = $("#actors");<br />
+        &emsp;for (var j in actorList) {<br />
+        &emsp;var a = actorList[j];<br />
+        &emsp;var tr = $("&lt;tr&gt;");<br />
+        &emsp;var td = $(""&lt;td&gt;");<br />
+        &emsp;td.append(a.fName);<br />
+        &emsp;tr.append(td);<br />
+        &emsp;td = $(""&lt;td&gt;");<br />
+        &emsp;td.append(a.lName);<br />
+        &emsp;tr.append(td);<br />
+        &emsp;&emsp;table.append(tr);
+    </code>
+    <hr />
+    <h3>Description</h3>
+    <p class="p1">The above example illustrates how using jQuery we can create objects and manipulate them.</p>
+    <p>In the above experiment I have created objects fName and lName and used them to display their content alongwith that I have created an array of objects actorList and displayed their content using table tag</p>
+    <hr />
+        <h3>Movie Genres</h3>
+        <ul id="genre">
+            <li>dummy-1</li>
+            <li>dummy-2</li>
+            <li>dummy-3</li>
+            <li>dummy-4</li>
+        </ul>
+    <hr />
+    <h3>Code Snippet</h3>
+    <p>In the code below I have created an array of values genres which are then displayed as list items of an unordered list by iterating through the array genres</p>
+    <code>
+        &emsp;&emsp;var genres = ["Comedy", "Drama", "Action", "Sci-fi"];<br />
+        &emsp;var ul = $("ul#genre");<br />
+        &emsp;ul.empty();<br />
+        &emsp;for (var i in genres) {<br />
+        &emsp;var li = $("&lt;li&gt;" + genres[i] + "&lt;/li&gt;");<br />
+        &emsp;ul.append(li);<br />
+        &emsp;&emsp;}
+    </code>
+    <hr />
+    <h3>Description</h3>
+    <p class="p1">The above example illustrates how we can iterate through arrays. Th array of values genres is itereated and displayed as a list item of unordered list genre.</p>
+    <hr />
+    <h3>Source Code</h3>
+    <div>
+        <a href="../../fileview/Default.aspx?~/experiments/WEEK-3/exp2.html" target="_blank">View HTML Code</a>
+    </div>
+    <div>
+        <a href="../../fileview/Default.aspx?~/experiments/WEEK-3/expr2.js" target="_blank">View jQuery Code</a>
+    </div>
+    <h3>References</h3>
+    <div>
+        <a href="http://www.w3schools.com/htmL/" target="_blank">W3 Schools</a>
+    </div>
+</body>
+</html>

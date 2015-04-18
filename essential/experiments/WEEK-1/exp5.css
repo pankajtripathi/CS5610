@@ -1,0 +1,41 @@
+﻿body {
+  background-color:gray;
+}
+.container{
+     margin:auto;
+     width:200px;
+}
+.row-1,.row-2,.row-3,.row-4,.row-5,.row-6,.row-8,.row-9,.row-10,.row-11,.row-12,.row-13{
+    width:400px;
+}
+.row-7{
+    width:400px;
+    clear:both;
+}
+.col-1{
+    width:200px;
+    float:left;
+}
+.col-2{
+    width:200px;
+    float:left;
+}
+.col-3{
+    width:100px;
+    float:left;
+}
+.col-4{
+    width:100px;
+    float:left;
+}
+.col-5{
+    width:50px;
+    float:left;
+}
+.col-6{
+    width:50px;
+    float:left;
+}
+hr{
+    clear:both;
+}

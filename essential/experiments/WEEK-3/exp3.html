@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Dragging and dropping objects</title>
+    <link rel="stylesheet" href="jQuery/css/jquery-ui.css" />
+    <script src="jQuery/js/jquery.js"></script>
+    <script src="jQuery/js/jquery-ui.js"></script>
+    <script src="expr3.js"></script>
+</head>
+<body>
+    <h1>Dragging and dropping objects</h1>
+    <hr />
+    <h3>Draggable image</h3>
+    <img id="imageEx" src="../WEEK-1/expImages/5871812-a-football-soccer-fan-has-a-header-in-mind-as-he-thinks-about-sports.jpg" />
+    <h3>Code Snippet</h3>
+    <p>In the code below using <b>draggable</b> function image <b>img#imageEx</b> has been made draggable enclosed in webpage.</p>
+    <code>
+        &emsp; &emsp;$("img#imageEx").draggable();
+    </code>
+    <h3>Description</h3>
+    <p>The above example illustrates draggable objects using jquery. In the above example an image has been made draggable</p>
+    <hr />
+    <h3>Draggable box</h3>
+        <div class="dropndrag">
+            <div id="draggableBox">
+                <p>Drag me around</p>
+            </div>
+            <div id="droppableBox">
+                <p>Drop here</p>
+            </div>
+        </div>
+    <h3>Code Snippet</h3>
+    <p>In the code below I have created two boxes <b>draggableBox</b> and <b>droppableBox</b>. The draggableBox when dragged and dropped within the droppablBox the text content of the droppable box is changed from Drop here to dropped, this to make sure that the draggableBox has been dropped within the droppableBox</p>
+    <code>
+        &emsp;$("#draggableBox").css({<br />
+        &emsp;&emsp;"width": "100px",<br />
+        &emsp;&emsp;"height": "100px",<br />
+        &emsp;&emsp;"padding": "0.5em",<br />
+        &emsp;&emsp;"background-color": "green",<br />
+        &emsp;&emsp;"float":"left"<br />
+        &emsp;});<br />
+        &emsp;$("#droppableBox").css({<br />
+        &emsp;&emsp;"width": "150px",<br />
+        &emsp;&emsp;"height": "150px",<br />
+        &emsp;&emsp;"padding": "0.5em",<br />
+        &emsp;&emsp;"clear": "both",<br />
+        &emsp;&emsp;"background-color": "blue",<br />
+        &emsp;&emsp;"margin": "10px"<br />
+        &emsp;});<br />
+        &emsp;$("#draggableBox").draggable();<br />
+        &emsp;$("#droppableBox").droppable({<br />
+        &emsp;&emsp;drop: function (event, ui) {<br />
+        &emsp;&emsp;$(this)<br />
+        &emsp;&emsp;.addClass("ui-state-highlight")<br />
+        &emsp;&emsp;.find("p")<br />
+        &emsp;&emsp;.html("Dropped!");<br />
+        &emsp;&emsp;}<br />
+        &emsp;});
+    </code>
+    <h3>Description</h3>
+    <p class="p1">The above example illustrates draggable and droppable boxes.</p>
+    <p>By using the functions draggable and droppable two boxes are assigned respective properties. When the dragableBox is dropped in the droppableBox the content of the droppableBox is changed using code <b>.html("Dropped!"</b>)</p>
+    <hr />
+    <h3>Source Code</h3>
+    <div>
+        <a href="../../fileview/Default.aspx?~/experiments/WEEK-3/exp3.html" target="_blank">View HTML Code</a>
+    </div>
+    <div>
+        <a href="../../fileview/Default.aspx?~/experiments/WEEK-3/expr3.js" target="_blank">View jQuery Code</a>
+    </div>
+    <h3>References</h3>
+    <div>
+        <a href="http://jqueryui.com/" target="_blank">jqueryui.com</a>
+    </div>
+</body>
+</html>

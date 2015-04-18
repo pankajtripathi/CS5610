@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>JSON Responses using NodeJS</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+</head>
+<body>
+    <div class="container">
+        <h2>JSON Responses using NodeJS</h2><hr />
+        <h4>Click <a href="http://nodejs-pankajt.rhcloud.com/api/employee">here</a> to redirect to the server that is hosted to check the output page.</h4>
+        <img class="img-responsive" src="exp3.1.png" /><br />
+        <h4>Click <a href="http://nodejs-pankajt.rhcloud.com/api/employee/2">here</a> to redirect to the server that is hosted to check the output page.</h4>
+        <img class="img-responsive" src="exp3.2.png" /><br />
+        <h4>Click <a href="http://nodejs-pankajt.rhcloud.com/api/employee/0/skill">here</a> to redirect to the server that is hosted to check the output page.</h4>
+        <img class="img-responsive" src="exp3.3.png" /><br />
+        <h4>Click <a href="http://nodejs-pankajt.rhcloud.com/api/employee/0/skill/0">here</a> to redirect to the server that is hosted to check the output page.</h4>
+        <img class="img-responsive" src="exp3.4.png" /><hr />
+        <div>
+            <h3><u>Code Snippet</u></h3>
+            <p>
+              In this experiment I have defined an array employee which has details of employess as shown in the code.
+              When I give parameter along with namaspace of employee that is <b>app.get('/api/employee'</b> I get all the empoyee details. I can check a specific employee by passing the index of that employee in the array as paramtere.
+            </p><br />
+            <code>
+                &emsp; employee =[<br />
+                &emsp;&emsp;{name:"Pankaj", skill:[{name: "JAVA"},{name:"WEB DEV"},{name:"DB"}]},<br />
+                &emsp;&emsp;{name:"Kartik", skill:[{name: "JAVA"},{name:"SAS"},{name:"DB"}]},<br />
+                &emsp;&emsp;{name:"Vikas", skill:[{name: "JAVA"},{name:"WEB DEV"},{name:"DB"}]},<br />
+                &emsp;&emsp;{name:"Abhishek", skill:[{name:"WEB DEV"},{name:"DB"}]},<br />
+                &emsp;&emsp;{name:"Shakti", skill:[{name: "JAVA"},{name:"WEB DEV"},{name:"DB"},{name:"AI"}]}<br />
+                &emsp;];<br />
+                &emsp;app.get('/api/employee', function(req,res){<br />
+                &emsp;&emsp;res.json(employee);<br />
+                &emsp;});<br />
+                &emsp;app.get('/api/employee/:index', function(req,res){<br />
+                &emsp;&emsp;res.json(employee[req.params.index]);<br />
+                &emsp;});<br />
+                &emsp;app.get('/api/employee/:index/skill', function(req,res){<br />
+                &emsp;&emsp;res.json(employee[req.params.index].skill);<br />
+                &emsp;});<br />
+                &emsp;app.get('/api/employee/:index/skill/:idx', function(req,res){<br />
+                &emsp;&emsp;var skillId = req.params.idx;<br />
+                &emsp;&emsp;res.json(employee[req.params.index].skill[skillId]);<br />
+                &emsp;});
+            </code>
+            <hr />
+            <h3><u>Description</u></h3>
+            <p>
+                Node.js is an open source, cross-platform runtime environment for server-side and networking applications.
+                Node.js applications are written in JavaScript, and can be run within the Node.js runtime on OS X, Microsoft Windows, Linux and FreeBSD.
+                Node.js provides an event-driven architecture and a non-blocking I/O API that optimizes an application's throughput and scalability.
+                These technologies are commonly used for real-time applications.
+                Node.js uses the Google V8 JavaScript engine to execute code, and a large percentage of the basic modules are written in JavaScript.
+                Node.js contains a built-in library to allow applications to act as a Web server without software such as Apache HTTP Server or IIS.
+                You can download NodeJS from <a href="http://nodejs.org/">here</a>.
+                JSON(JavaScript Object Notation) is the open standard format uses human readable text to transmit data object consisting of attribute value pair. It will return ordered list of values.
+
+                In this experiment, I've build on experiment 1 to create JSON responses from the server to the client.
+                Here the server checks for a particular url and based on that it sends a response in JSON format to the client.
+                Here an array of JSON objects is hard-coded. I'm using different <code>get</code> functions to send a respons to the client based on the url received.
+            </p><hr />
+        </div>
+        <h3>Source Code</h3>
+        <div>
+            <a href="../../fileview/Default.aspx?~/Experiments/WEEK-6/exp3.html">HTML Source Code</a><br />
+        </div>
+        <hr />
+        <h3>References</h3>
+        <a href="https://www.youtube.com/watch?v=Lnd_uSEpCdo">Youtube Video</a><br />
+        <a href="https://www.w3schools.com">W3Schools</a><br />
+    </div>
+</body>
+</html>
+

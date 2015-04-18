@@ -1,0 +1,37 @@
+﻿body {
+}
+p{
+    float:left;
+    width:300px;
+}
+@media screen and (max-width: 500px)
+{
+    body {
+        background-color:red;
+    }
+}
+@media screen and (min-width: 500px) and (max-width:700px)
+{
+    body {
+        background-color:green;
+    }
+}
+@media screen and (min-width: 700px)
+{
+    body {
+        background-color:yellow;
+    }
+}
+h3{
+    clear:both;
+}
+hr{
+    clear:both;
+}
+.p1{
+    clear:both;
+}
+code {
+    background-color: lightgreen;
+    font-family: monospace;
+}

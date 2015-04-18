@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Angular JS: Movie Library</title>
+    <script src="js/angular.min.js"></script>
+    <script src="expr2.js"></script>
+    <link href="../../css/bootstrap.css" rel="stylesheet" />
+    <link href="expr1.css" rel="stylesheet" />
+</head>
+<body ng-app="controllerDemo">
+    <h1>Angular JS: Movie Library</h1>
+    <hr />
+    <div ng-controller="expController">
+        <div ng-show="details">
+            <h2>Details</h2>
+            <h4>{{details.title}}</h4>
+            <img ng-src="{{details.urlPoster}}" />
+            {{details.rating}}
+            <p>{{details.plot}}</p>
+            Languages:
+            <ul>
+                <li ng-repeat="l in details.languages">
+                    {{l}}
+                </li>
+            </ul>
+            Genres:
+            <ul>
+                <li ng-repeat="g in details.genres">
+                    {{g}}
+                </li>
+            </ul>
+        </div>
+        
+        <h2>Favorite Movies</h2>
+        <table class="table table-stripped">
+            <tbody>
+                <tr ng-repeat="m in favMovies">
+                    <td>{{m.title}}</td>
+                    <td>{{m.rating}}</td>
+                    <td>
+                        <img class="poster" ng-src="{{m.urlPoster}}" width="50" />
+                        {{m.plot}}
+                    </td>
+                    <td>
+                        <button ng-click="removeFavMovie(m)" class="btn btn-danger">&times;</button>
+                        <button ng-click="detailsOfMovie(m)" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></button>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Search Movie</h2>
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for..." ng-model="searchByTitle">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button" ng-click="searchMovies()">Go!</button>
+            </span>
+        </div>
+
+        <table class="table table-stripped">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Rating</th>
+                    <th>Plot</th>
+                    <th>&nbsp;</th>
+                </tr>
+                <tr>
+                    <th><input ng-model="m.title" class="form-control" /></th>
+                    <th><input ng-model="m.rating" class="form-control" /></th>
+                    <th><input ng-model="m.plot" class="form-control" /></th>
+                    <th><button ng-click="addMovie()" class="btn btn-success">&#43;</button></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="m in movies">
+                    <td>{{m.title}}</td>
+                    <td>{{m.rating}}</td>
+                    <td>
+                        <img class="poster" ng-src="{{m.urlPoster}}" width="50" />
+                        {{m.plot}}
+                    </td>
+                    <td>
+                        <button ng-click="removeMovie(m)" class="btn btn-danger">&times;</button>
+                        <button ng-click="addToFav(m)" class="btn btn-info">&#9733;</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr />
+    <h3>Code Snippet</h3>
+    <p>
+        In this code using controller to display on the webpage the movies directly from the server based on the title provided by the user. The movies in the list can removed dynamically or a new movie can be added to list by the user. To add a new movie user has to click on "+" and to remove he/she has to click on "X". To remove the movie I obtain the idex of the movie for which the button is clicked and I just splice it from the list.
+        To add a movie I obtain the details from the view and push it to list of movies.I have also provided a functionality to add a movie to a favorites list. I have also provided a functionality to check details of a mvoie seperately.
+    </p>
+    <code>
+        &emsp;$scope.detailsOfMovie = function (m) {<br />
+        &emsp;&emsp;$http.jsonp("http://www.myapifilms.com/imdb?format=JSONP&idIMDB=" + m.idIMDB + "&callback=JSON_CALLBACK")<br />
+        &emsp;&emsp;.success(function (m) {<br />
+        &emsp;&emsp;$scope.details = m;<br />
+        &emsp;&emsp;console.log(m);<br />
+        &emsp;&emsp;});<br />
+        &emsp;}<br />
+        &emsp;app = angular.module("controllerDemo", []);<br />
+        &emsp;app.controller("expController",<br /><br />
+        &emsp;function ($scope, $http) {<br />
+        &emsp;&emsp;$scope.favMovies = <br />
+        &emsp;&emsp;$scope.addToFav = function (m) {<br />
+        &emsp;&emsp;$scope.favMovies.push(m);<br />
+        &emsp;}<br /><br />
+        &emsp;$scope.removeFavMovie = function (m) {<br />
+        &emsp;&emsp;var index = $scope.favMovies.indexOf(m);<br />
+        &emsp;&emsp;$scope.favMovies.splice(index, 1);<br />
+        &emsp;}<br />
+        &emsp;//Use $http.get(url) for JSON and $http.jsonp(url) for jsonp<br /><br />
+        &emsp;$scope.searchMovies = function () {<br />
+        &emsp;&emsp;var title = $scope.searchByTitle;<br />
+        &emsp;&emsp; $http.jsonp("http://www.myapifilms.com/imdb?title="+title+"&format=JSONP&aka=0&business=0&seasons=0&seasonYear=0&technical=0&filter=N&exactFilter=0&limit=10&lang=en-us&actors=N&biography=0&trailer=0&uniqueName=0&filmography=0&bornDied=0&starSign=0&actorActress=0&actorTrivia=0&movieTrivia=0&awards=0&moviePhotos=N&movieVideos=N&callback=JSON_CALLBACK")<br />
+        &emsp;&emsp;.success(function (response) {<br />
+        &emsp;&emsp;$scope.movies = response;<br />
+        &emsp;&emsp;})<br />
+        &emsp;}<br /><br />
+        &emsp;$scope.removeMovie = function (m) {<br />
+        &emsp;&emsp;var index = $scope.movies.indexOf(m);<br />
+        &emsp;&emsp;console.log(index);<br />
+        &emsp;&emsp;$scope.movies.splice(index, 1);<br />
+        &emsp;}<br />
+        &emsp;$scope.addMovie = function () {<br />
+        &emsp;&emsp;var newMovie = { title: $scope.m.title, rating: $scope.m.rating, plot: $scope.m.plot };<br />
+        &emsp;&emsp;$scope.movies.push(newMovie);<br />
+        &emsp;&emsp;};<br />
+        &emsp;});<br />
+    </code>
+    <hr />
+    <h3>Description</h3>
+    <p>AngularJS, commonly referred to as Angular, is an open-source web application framework maintained by Google and a community of individual developers and corporations to address many of the challenges encountered in developing single-page applications. Its goal is to simplify both development and testing of such applications by providing a framework for client-side model–view–controller (MVC) architecture, along with components commonly used in rich internet applications.</p>
+    <p>In this experiment I am displaying list of all the movies from the server for the titlr provided by the user. Along with this I have also provided a functionality to add a new movie to the list</p>
+    <hr />
+    <h3>Source Code</h3>
+    <div>
+        <a href="../../fileview/Default.aspx?~/experiments/WEEK-5/exp2.html" target="_blank">View HTML Code</a>
+    </div>
+    <div>
+        <a href="../../fileview/Default.aspx?~/experiments/WEEK-5/expr2.js" target="_blank">View AngularJS Code</a>
+    </div>
+    <h3>References</h3>
+    <div>
+        <a href="https://www.youtube.com/watch?v=KCTKd5ZmXMQ" target="_blank">Youtube</a>
+    </div>
+</body>
+</html>
+

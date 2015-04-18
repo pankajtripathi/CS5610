@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Login Page</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="expr4.css" />
+</head>
+
+<body class="container">
+    <div>
+        <h3>Please click the below link to see the experiment</h3>
+        <a href="http://myproject-pankajt.rhcloud.com/"><span style="font-size:large">Check login</span></a>
+    </div>
+    <article>
+        <div style="margin-top:50px;">
+            <h3> About the experiment</h3>
+            <div>
+                In this experiment, I have added login funtionality for my web page.
+                I am using passport for this service. Once the user is logged in he will be taken to profile page with login and new user links hidden from that page.
+            </div>
+
+            <div>
+                <img class="exp-img1" src="login.png" />
+            </div>
+            <br />
+            <div>
+                <img class="exp-img2" src="profile.png" />
+            </div>
+        </div>
+        <hr />
+        <h4>Code Snippet</h4>
+        <p>
+            Passport configuration is done first. Local Strategy is configured. Here I specified that when one record matching the username and password is found then I allow to login , otherwise I return false.
+            Also, I define the two methods serializeUser and deserializeUser required by passport to define the user to be stored.
+        </p>
+        <p>
+            After this, I declared the login service where I introduced a interface passport.aunthenticate('local') to authenticate user before allowing login.
+            Also I added the /profile service to be called just after login is performed to take user to profile page.
+        </p>
+        <p>
+            In the client side, we add the login method where we call teh login service. After login is done and we receive success, I added an additional call to profile service to load the profile page.
+        </p>
+        <section>
+            <pre id="code" style="background-color: lightgray; width: 900px; border: solid 1px black;">
+<b>ANGULAR JS CODE:</b>
+   $scope.login = function(user){
+        //console.log(user);
+        $http.post("/login", user)
+        .success(function(response){
+        	$scope.profile="user";
+            console.log(response);
+            $rootScope.currentUser = response;
+            $location.url("/profile");
+            angular.element('#modalClose').trigger('click');
+        });
+    }
+    
+    $scope.logout = function(){
+        //console.log(user);
+        $http.post("/logout")
+        .success(function(response){
+        	$scope.profile=null;
+            console.log(response);
+            $rootScope.currentUser = response;
+            $location.url("/home");
+        });
+    }
+
+<b>NODE JS CODE:</b>
+passport.use(new LocalStrategy(
+function(username, password, done)
+{
+	UserModel.findOne({username: username, password: password}, function(err, user)
+    	    {
+    	        if (user){
+    	        	return done(null, user);
+    	        }
+    	        console.log(user);
+    	        return done(null, false);
+    	    })
+}));
+passport.serializeUser(function(user, done) {
+	done(null, user);
+});
+passport.deserializeUser(function(user, done) {
+	done(null, user);
+});
+app.post("/login", passport.authenticate('local'), function(req, res){
+    var user = req.user;
+    console.log(user);
+    res.json(user);
+});
+app.get('/loggedin', function(req, res)
+{
+		    res.send(req.isAuthenticated() ? req.user : '0');
+});
+
+</pre>
+        </section>
+    </article>
+
+    <br style="clear:both" />
+    <footer>
+        <hr />
+        <h4> Source Code</h4>
+        <div>
+            <a href="../../fileview/Default.aspx?~/experiments/WEEK-10/exp4.html" target="_blank">View HTML Code</a>
+        </div>
+        <h3>References</h3>
+        <div>
+            <a href="https://www.youtube.com/watch?v=8GL5WpQ0vfo" target="_blank">Youtube</a>
+        </div>
+    </footer>
+    <br />
+</body>
+
+</html>
+
+

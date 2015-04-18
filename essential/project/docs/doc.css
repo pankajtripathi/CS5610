@@ -1,0 +1,25 @@
+﻿body {
+    color:black;
+}
+
+h1 {
+    text-align:center;
+    color:green;
+}
+
+h3 {
+ color:green;
+}
+
+p,b{
+    font-size:16px;
+}
+.right {
+  font-size:10px;
+  text-align:center;
+}
+
+#flow {
+ width:800px;
+ height:500px;
+}

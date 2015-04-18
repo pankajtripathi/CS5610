@@ -1,0 +1,87 @@
+﻿
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Routing Homepage</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+</head>
+
+<body class="container">
+    <div>
+        <h3>Please click the below link to see the experiment</h3>
+        <a href="http://myproject-pankajt.rhcloud.com/"><span style="font-size:large">Routing at index.html page</span></a>
+    </div>
+
+    <article>
+        <div style="margin-top:50px;">
+            <h4> About the experiment</h4>
+            <div>
+                In this experiment, I have added routing funtionality to my Homage page that is index.html
+                I am using single page funtionality wherein I am displaying all the pages in a single page that is index.html by using Angular routing.
+            </div>
+        </div>
+        <hr />
+        <h4>Code Snippet</h4>
+        <section>
+            <pre id="code" style="background-color: lightgray; width: 900px; border: solid 1px black;">
+var app = angular.module("MyApp", ["ngRoute"]);
+console.log("hello");
+app.config(function($routeProvider, $httpProvider) {
+    $routeProvider
+      .when('/home', {
+          templateUrl: 'views/home/home.html'
+      })
+      .when('/contact', {
+          templateUrl: 'views/contact/contact.html'
+      })
+/*      .when('/profile', {
+          templateUrl: 'views/profile/profile.html',
+          controller: 'ProfileCtrl',
+          resolve: {
+              loggedin: checkLoggedin
+          }
+      })*/
+      .otherwise({
+          redirectTo: '/home'
+      });
+});
+app.controller("LoginCtrl", function($scope, $http, $location, $rootScope){
+    $scope.login = function(user){
+        console.log(user);
+        $http.post("/login", user)
+        .success(function(response){
+            console.log(response);
+            $rootScope.currentUser = response;
+            $location.url("/home");
+        });
+    }
+    
+});
+
+</pre>
+        </section>
+    </article>
+
+    <br style="clear:both" />
+    <footer>
+        <hr />
+        <h4> Source Code</h4>
+        <div>
+            <a href="../../fileview/Default.aspx?~/experiments/WEEK-9/exp5.html" target="_blank">View HTML Code</a>
+        </div>
+        <div>
+            <a href="../../fileview/Default.aspx?~/experiments/WEEK-9/app.js" target="_blank">View JS Code</a>
+        </div>
+        <h3>References</h3>
+        <div>
+            <a href="https://www.youtube.com/watch?v=PlAxG8R_zXI" target="_blank">Youtube</a>
+        </div>
+    </footer>
+    <br />
+</body>
+
+</html>
+
+

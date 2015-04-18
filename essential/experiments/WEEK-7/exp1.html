@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Introduction to MongoDB</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Introduction to MongoDB</h1><hr />
+        <h4>Data that is present in the DB cs5610 created locally with collection named developer</h4>
+        <img class="img-responsive" src="exp1.2.png" /><br />
+        <h5>Click <a href="http://nodejs-pankajt.rhcloud.com/developer">here</a> to go the server.</h5>
+        <img class="img-responsive" src="exp1.1.png" />
+        <hr />
+        <div>
+            <h3><u>Code Snippet</u></h3>
+            <p>
+            In the code given below I use <b>require('mongoose')</b> to get the mongoose module in order to use it.
+            I have created a schema <b>DevSchema</b>to control the data that user enters into the database.
+            Once the schema is created I create an instance of that schema with the values that I need to enter in the database and use statement <b>dev1.save()</b> to save the data to DB.
+            </p><br />
+            <code>
+                &emsp; mongoose= require('mongoose');<br />
+                &emsp;var connectionString = process.env.OPENSHIFT_MONGODB_DB_URL || 'mongodb://localhost/cs5610';<br />
+                &emsp;mongoose.connect(connectionString);<br /><br />
+                &emsp;var DevSchema = new mongoose.Schema({<br />
+                &emsp; &emsp;first: String,<br />
+                &emsp; &emsp;last: String,<br />
+                &emsp; &emsp;skill: String,<br />
+                &emsp; &emsp;city: String,<br />
+                &emsp; }, { collection: "developer" });<br /><br />
+                &emsp;var DevModel = mongoose.model('DevModel', DevSchema);<br /><br />
+                &emsp;var dev1 = new DevModel({ first: "Pankaj", last: "Tripathi", skill: "JAVA", city: "LA" });<br />
+                &emsp;var dev2 = new DevModel({ first: "Vikas", last: "Shriyan", skill: "JAVA", City: "Boston" });<br />
+                &emsp;var dev3 = new DevModel({ first: "Abhishek", last: "Kumar", skill: "ORACLE", city: "Pheonix" });<br />
+                &emsp;var dev4 = new DevModel({ first: "Shakti", last: "Patro", skill: "NODEJS", city: "Sunyvale" });<br />
+                &emsp;var dev5 = new DevModel({ first: "Kartik", last: "Mahaley", skill: "SAS", city: "New York" });<br />
+                &emsp;dev1.save();<br />
+                &emsp;dev2.save();<br />
+                &emsp;dev3.save();<br />
+                &emsp;dev4.save();<br />
+                &emsp;dev5.save();<br /><br />
+                &emsp;app.get('/developer', function (req, res) {<br />
+                &emsp;DevModel.find(function (err, data) {<br />
+                &emsp;res.json(data);<br />
+                &emsp;});<br />
+                &emsp;});
+            </code>
+            <hr />
+            <h3><u>Description</u></h3>
+            <p>
+                MongoDB is a cross-platform document-oriented database. Classified as a NoSQL database, MongoDB eschews the traditional table-based relational database structure in favor of JSON-like documents with dynamic schemas (MongoDB calls the format BSON), making the integration of data in certain types of applications easier and faster.
+                Mongoose provides a straight-forward, schema-based solution to modeling your application data and includes built-in type casting, validation, query building, business logic hooks and more, out of the box.
+                Mongoose is an elegant way of mongoDB object modelling for nodeJS.
+
+                In this experiment, I've started with the basic Insert operation using MongoDB and Mongoose.
+                The output of this will be in JSON format, not parsed and in a HTML page.
+                Here I insert different developer JSON objects and query using it the get function from the URL.
+            </p><hr />
+        </div>
+        <h3>Source Code</h3>
+        <div>
+            <a href="../../fileview/Default.aspx?~/experiments/WEEK-7/exp1.html" target="_blank">View HTML Code</a>
+        </div>
+        <div>
+            <a href="../../fileview/Default.aspx?~/experiments/WEEK-7/server.js" target="_blank">View Node.JS Code</a>
+        </div>
+        <hr />
+        <h3>References</h3>
+        <a href="https://www.youtube.com/watch?v=YH5sFprHgl0">Youtube Video</a><br />
+    </div>
+</body>
+</html>
+

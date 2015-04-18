@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>CSS with jQuery</title>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="expr1.js"></script>
+</head>
+<body>
+    <h1>THIS IS CSS WITH JS</h1>
+    <hr />
+    <p class="first">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. <span class="whiteBg"> Lorem Ipsum</span> has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    </p>
+    <p id="second">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    </p>
+    <hr />
+    <h3>Code Snippet</h3>
+    <p>In this experiment I have writeen a jQuery function using which I have made changes in the styling of header tag <b>H1</b></p>
+    <p>Along with creating CSS for header tag I have also made changes in CSS for paragraphs wherein I have changes their backgorund color and font color</p>
+    <p>I have used <b>append</b> function to add some text before second paragraph and <b>prepend</b> to add some text before first paragragh</p>
+    <code>
+        &emsp;&emsp;$(function () {<br />
+        &emsp;$("h1").css({<br />
+        &emsp;"color": "red",<br />
+        &emsp;"background-color": "yellow"<br />
+        &emsp;});<br />
+        &emsp;$("p#second").css({<br />
+        &emsp;"color": "green"<br />
+        &emsp;});<br />
+        &emsp;$("p.first").css({<br />
+        &emsp;"background-color": "lightblue"<br />
+        &emsp;});<br />
+        &emsp;$(".whiteBg").css({<br />
+        &emsp;"color": "white"<br />
+        &emsp;});<br />
+        &emsp;$("p#second").append("Added new content using append");<br />
+        &emsp;$("p#second").append("&lt;p&gt;This is new paagraph added via jQuery&lt;/p&gt;");<br />
+        &emsp;var newParagraph = $("&lt;p&gt;This is new paragraph added with a variable&lt;/p&gt;");<br />
+        &emsp;$("p.first").prepend(newParagraph);<br />
+        &emsp;newParagraph.css({ "color": "red" });<br />
+        &emsp;&emsp;});
+    </code>
+    <hr />
+    <h3>Description</h3>
+    <p class="p1">The above example illustrates how using jQuery we can style our web content.
+     In the above experiment using jQuery function I have changed CSS properties for some tags like h1, p#second, p.first.</p>
+    <p> Using perpend and append functions data can be added to the existing page which has been illustrated successfully in the above example</p>
+    <hr />
+    <h3>Source Code</h3>
+    <div>
+        <a href="../../fileview/Default.aspx?~/experiments/WEEK-3/exp1.html" target="_blank">View HTML Code</a>
+    </div>
+    <div>
+        <a href="../../fileview/Default.aspx?~/experiments/WEEK-3/expr1.js" target="_blank">View jQuery Code</a>
+    </div>
+    <h3>References</h3>
+    <div>
+        <a href="http://www.w3schools.com/htmL/" target="_blank">W3 Schools</a>
+    </div>
+</body>
+</html>

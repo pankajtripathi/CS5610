@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Angular JS: Button Action</title>
+    <script src="js/angular.min.js"></script>
+    <script src="expr4.js"></script>
+    <link href="../../css/bootstrap.css" rel="stylesheet" />
+
+</head>
+    <body ng-app="controllerDemo">
+        <h1>Angular JS: Button Action</h1>
+        <hr />
+        <div ng-controller="expController">
+            <table class="table table-stripped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Major</th>
+                        <th>University</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                    <tr>
+                        <th><input ng-model="s.name" class="form-control"/></th>
+                        <th><input ng-model="s.major" class="form-control" /></th>
+                        <th><input ng-model="s.univ" class="form-control" /></th>
+                        <th><button ng-click="addStudent()" class="btn btn-success">&#43;</button></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="s in students">
+                        <td>{{s.name}}</td>
+                        <td>{{s.major}}</td>
+                        <td>{{s.univ}}</td>
+                        <td>
+                            <button ng-click="removeStudent(s)" class="btn btn-danger">&times;</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <hr />
+        <h3>Code Snippet</h3>
+        <p>In this code using controller I create an array of students which I will display on the webpage. The students in the array students can removed dynamically or a new student can be added to the array by the user. To add a new student user has to click on "+" and to remove he/she has to click on "X". To remove the student I obtain the idex of the student for which the button is clicked and i just splice it from the array.
+        To add a student I obtain the details from the view and push it to arary of students.</p>
+        <code>
+            &emsp;app = angular.module("controllerDemo", []);<br />
+            &emsp;app.controller("expController",<br />
+            &emsp;function ($scope) {<br />
+            &emsp;&emsp;var students = [<br />
+            &emsp;&emsp;{name: "Pankaj", major: "Computer Science", univ: "NEU" },<br />
+            &emsp;&emsp;{name: "Abhishek", major: "Computer Science", univ: "NEU" },<br />
+            &emsp;&emsp;{name: "Siddharth", major:"Electronics", univ:"UPENN"},<br />
+            &emsp;&emsp;{name: "Monil", major:"Computer Science", univ:"USC"}<br />
+            &emsp;&emsp;]<br />
+            &emsp;$scope.students = students;<br />
+            &emsp;$scope.removeStudent = function (s)<br />
+            &emsp;&emsp;{<br />
+            &emsp;&emsp;var index = $scope.students.indexOf(s);<br />
+            &emsp;&emsp;console.log(index);<br />
+            &emsp;&emsp;$scope.students.splice(index, 1);<br />
+            &emsp;&emsp;}<br />
+            &emsp;$scope.addStudent = function ()<br />
+            &emsp;&emsp;{<br />
+            &emsp;&emsp;var newStudent = { name: $scope.s.name, major: $scope.s.major, univ: $scope.s.univ };<br />
+            &emsp;&emsp;$scope.students.push(newStudent);<br />
+            &emsp;&emsp;};<br />
+            &emsp;});
+        </code>
+        <hr />
+        <h3>Description</h3>
+        <p>AngularJS, commonly referred to as Angular, is an open-source web application framework maintained by Google and a community of individual developers and corporations to address many of the challenges encountered in developing single-page applications. Its goal is to simplify both development and testing of such applications by providing a framework for client-side model–view–controller (MVC) architecture, along with components commonly used in rich internet applications.</p>
+        <p>In this experiment I am displaying list of all the students from the array students. Along with this I have also provided a functionality to add a new student</p>
+        <hr />
+        <h3>Source Code</h3>
+        <div>
+            <a href="../../fileview/Default.aspx?~/experiments/WEEK-4/exp4.html" target="_blank">View HTML Code</a>
+        </div>
+        <div>
+            <a href="../../fileview/Default.aspx?~/experiments/WEEK-4/expr4.js" target="_blank">View jQuery Code</a>
+        </div>
+        <h3>References</h3>
+        <div>
+            <a href="https://www.youtube.com/watch?v=KCTKd5ZmXMQ" target="_blank">Youtube</a>
+        </div>
+    </body>
+</html>

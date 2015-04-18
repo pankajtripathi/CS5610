@@ -1,0 +1,6 @@
+﻿../../story/whatisnext.htm?../experiments/WEEK-3/      What is Next?
+exp1.html                                          CSS using jQuery
+exp2.html				                           jQuery variable and control loop 
+exp3.html				                           Dragging and dropping objects
+exp4.html                                          Selectable elements and datepicker
+exp5.html                                          Accordion using jQuery

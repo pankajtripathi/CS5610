@@ -1,0 +1,40 @@
+﻿<h2>Search Movie</h2>
+<div class="input-group">
+    <input type="text" class="form-control" placeholder="Search for..." ng-model="searchByTitle">
+    <span class="input-group-btn">
+        <button class="btn btn-default" type="button" ng-click="searchMovies()">Go!</button>
+    </span>
+</div>
+
+<table class="table table-stripped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Rating</th>
+            <th>Plot</th>
+            <th>&nbsp;</th>
+        </tr>
+        <tr>
+            <th><input ng-model="m.title" class="form-control" /></th>
+            <th><input ng-model="m.rating" class="form-control" /></th>
+            <th><input ng-model="m.plot" class="form-control" /></th>
+            <th>&nbsp;</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="m in movies">
+            <td>{{m.title}}</td>
+            <td>{{m.rating}}</td>
+            <td>
+                <img class="poster" ng-src="{{m.urlPoster}}" width="50" />
+                {{m.plot}}
+            </td>
+            <td>
+                <button ng-click="addToFav(m)" class="btn btn-info">&#9733;</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+

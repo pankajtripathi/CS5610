@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Angular JS: Note App</title>
+    <script src="js/angular.min.js"></script>
+    <script src="expr5.js"></script>
+    <link href="../../css/bootstrap.css" rel="stylesheet" />
+</head>
+<body ng-app="MyNoteApp">
+    <div ng-controller="myNoteCtrl">
+        <h2>Angular JS: Note App</h2>
+        <p><textarea ng-model="message" cols="40" rows="10"></textarea></p>
+        <p>
+            <button ng-click="save()">Save</button>
+            <button ng-click="clear()">Clear</button>
+        </p>
+        <p>Number of characters left: <span ng-bind="left()"></span></p>
+        <hr />
+        <h4>Notes:</h4>
+        <table class="table table-stripped">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="n in notes">
+                    <td>{{n.title}}</td>
+                    <td>{{n.date}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <hr />
+        <h3>Code Snippet</h3>
+        <p>
+            In this code I have created an app call MyNoteApp. I am saving my text in <b>$scope.message</b>. I am showing the characters left by deducting the text entered with permissible limit of 100 characters. I have provided a functionality to save the note with the date. I have added the title of the note and the date it was created in an array called notes which I am dispalying on the page
+        </p>
+        <code>
+            &emsp; app = angular.module("MyNoteApp", []);<br />
+            &emsp;app.controller("myNoteCtrl", function ($scope) {<br />
+            &emsp;&emsp;$scope.notes = [];<br />
+            &emsp;&emsp;$scope.message = "";<br />
+            &emsp;&emsp;$scope.left = function () {<br />
+            &emsp;&emsp;&emsp;var rem = 100 - $scope.message.length;<br />
+            &emsp;&emsp;&emsp;return rem;<br />
+            &emsp;&emsp;};<br />
+            &emsp;&emsp;$scope.clear = function ()<br />
+            &emsp;&emsp;{<br />
+            &emsp;&emsp;&emsp;$scope.message = "";<br />
+            &emsp;&emsp;};<br />
+            &emsp;&emsp;$scope.save = function () {<br />
+            &emsp;&emsp;&emsp;$scope.currentDate = new Date();<br />
+            &emsp;&emsp;&emsp;var note = {<br />
+            &emsp;&emsp;&emsp;title: $scope.message,<br />
+            &emsp;&emsp;&emsp;date:$scope.currentDate<br />
+            &emsp;&emsp;}<br />
+            &emsp;&emsp;$scope.notes.push(note);<br />
+            &emsp;&emsp;};<br />
+            &emsp;});
+        </code>
+        <hr />
+        <h3>Description</h3>
+        <p>AngularJS, commonly referred to as Angular, is an open-source web application framework maintained by Google and a community of individual developers and corporations to address many of the challenges encountered in developing single-page applications. Its goal is to simplify both development and testing of such applications by providing a framework for client-side model–view–controller (MVC) architecture, along with components commonly used in rich internet applications.</p>
+        <p>In this experiment I am providing user a functionality to create a new note and save that note.The character limit is 100 characters. The note is saved with a title and date it was created.</p>
+        <hr />
+        <h3>Source Code</h3>
+        <div>
+            <a href="../../fileview/Default.aspx?~/experiments/WEEK-5/exp5.html" target="_blank">View HTML Code</a>
+        </div>
+        <div>
+            <a href="../../fileview/Default.aspx?~/experiments/WEEK-5/expr5.js" target="_blank">View AngularJS Code</a>
+        </div>
+        <hr />
+        <h3>References</h3>
+        <div>
+            <a href="https://www.youtube.com/watch?v=KCTKd5ZmXMQ" target="_blank">Youtube</a>
+        </div>
+</div>
+</body>
+</html>

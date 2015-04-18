@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Form using data from MongoDB</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Form using data from MongoDB</h1><hr />
+        <img class="img-responsive" src="exp4.1.png" /><br />
+        <h5>Click <a href="http://nodejs-pankajt.rhcloud.com/">here</a> to go the server and check the form.</h5>
+        <hr />
+        <div>
+            <h3><u>Code Snippet</u></h3>
+            <p>
+                In the code given below I use <b>require('mongoose')</b> to get the mongoose module in order to use it.
+                I have created a schema <b>DevSchema</b>to control the data that user enters into the database.
+                At the server side I have written code to handle deletion and additon of data.For deletion I fetch the index for which button is pressed and then for that index data I get the unique id and delete it from the DB.
+                For addition of data I create new instance dev1 and add it to the DB when button is pressed for the same.
+            </p><br />
+            <h3>Server side code</h3>
+            <code>
+                &emsp;&emsp;app.post("/developer", function (req, res) {<br />
+                &emsp;&emsp;var dev1 = new DevModel(req.body);<br />
+                &emsp;&emsp;dev1.save(function (err, doc) {<br />
+                &emsp;&emsp;DevModel.find(function (err, data) {<br />
+                &emsp;&emsp;res.json(data);<br />
+                &emsp;&emsp;});<br />
+                &emsp;&emsp;});<br />
+                &emsp;});<br /><br />
+                &emsp;app.delete("/developer/:id", function (req, res) {<br />
+                &emsp;&emsp;DevModel.findById(req.params.id, function (err, doc) {<br />
+                &emsp;&emsp;doc.remove();<br />
+                &emsp;&emsp;DevModel.find(function (err, data) {<br />
+                &emsp;&emsp;res.json(data);<br />
+                &emsp;&emsp;});<br />
+                &emsp;&emsp;});<br />
+                &emsp;});
+            </code>
+            <h3>Javascript code</h3>
+            <code>
+                &emsp; app = angular.module("CMApp", []);<br />
+                &emsp; app.controller("cmappController", function ($scope, $http) {<br />
+                &emsp; $scope.add = function (dev) {<br />
+                &emsp; &emsp; console.log(dev);<br />
+                &emsp; &emsp; $http.post("/developer", dev)<br />
+                &emsp; &emsp; .success(function (response) {<br />
+                &emsp; &emsp; $scope.developer = response;<br />
+                &emsp; &emsp; });<br />
+                &emsp; }<br /><br />
+                &emsp;$scope.remove = function (index) {<br />
+                &emsp;&emsp;  developer = $scope.developer[index];<br />
+                &emsp; &emsp; $http.delete("/developer/" + developer._id)<br />
+                &emsp; &emsp; .success(function (response) {<br />
+                &emsp; &emsp; $scope.developer = response;<br />
+                &emsp; &emsp; });<br />
+                &emsp; }<br /><br />
+                &emsp; $http.get("/developer")<br />
+                &emsp;&emsp;.success(function (response) {<br />
+                &emsp;&emsp;$scope.developer = response;<br />
+                &emsp;&emsp;});<br />
+                &emsp;});<br />
+            </code>
+            <hr />
+            <h3><u>Description</u></h3>
+            <p>
+                MongoDB is a cross-platform document-oriented database. Classified as a NoSQL database, MongoDB eschews the traditional table-based relational database structure in favor of JSON-like documents with dynamic schemas (MongoDB calls the format BSON), making the integration of data in certain types of applications easier and faster.
+                Mongoose provides a straight-forward, schema-based solution to modeling your application data and includes built-in type casting, validation, query building, business logic hooks and more, out of the box.
+                Mongoose is an elegant way of mongoDB object modelling for nodeJS.
+               
+                In this experiment, I have created a form using which user can add a data in DB as well as delete and existing document from MongoDB.
+            </p><hr />
+        </div>
+        <h3>Source Code</h3>
+        <div>
+            <a href="../../fileview/Default.aspx?~/experiments/WEEK-7/exp4.html" target="_blank">View HTML Code</a>
+        </div>
+        <div>
+            <a href="../../fileview/Default.aspx?~/experiments/WEEK-7/server.js" target="_blank">View Node.JS Code</a>
+        </div>
+        <hr />
+        <h3>References</h3>
+        <a href="https://www.youtube.com/watch?v=YH5sFprHgl0">Youtube Video</a><br />
+    </div>
+</body>
+</html>

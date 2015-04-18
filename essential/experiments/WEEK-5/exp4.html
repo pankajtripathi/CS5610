@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Angular Routing with Service</title>
+    <link href="../../css/bootstrap.css" rel="stylesheet" />
+    <link href="../../css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="expr1.css" rel="stylesheet" />
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.js"></script>
+    <script src="expr4.js"></script>
+    <script src="exp4-service.js"></script>
+</head>
+<body ng-app="RouteApp">
+    <div class="container">
+        <h1>Angular Routing with Service</h1>
+        <nav>
+            <a href="#/home">Home</a>
+            <a href="#/about">MyProfile</a>
+        </nav>
+    </div>
+    <hr />
+    <div ng-view></div>
+    <hr />
+    <h3>Code Snippet</h3>
+    <p>Ih the code below I have created diffrent html pages and I am routing between them. The code for routing to home page and profile page is given below.</p>
+    <code>
+        &emsp;app = angular.module("RouteApp", ['ngRoute']);<br /><br />
+        &emsp;app.config(['$routeProvider',<br />
+        &emsp;function ($routeProvider) {<br />
+        &emsp;&emsp;$routeProvider.<br />
+        &emsp;&emsp;when('/home', {<br />
+        &emsp;&emsp;templateUrl: 'movieLib/home.html',<br />
+        &emsp;&emsp;controller: 'HomeCtrl'<br />
+        &emsp;}).<br />
+        &emsp;&emsp;when('/about', {<br />
+        &emsp;&emsp;templateUrl: 'movieLib/about.html',<br />
+        &emsp;&emsp;controller: 'FavCtrl'<br />
+        &emsp;}).<br />
+        &emsp;otherwise({<br />
+        &emsp;&emsp;redirectTo: '/home'<br />
+        &emsp;&emsp;});<br />
+        &emsp;}]);
+    </code>
+    <p>For each and every html page I have a controller to carry out the required functionality. HomeCtrl for home.html page enable a user to serch for a movie and add it to favorites</p>
+    <code>
+        &emsp;.controller("HomeCtrl", function ($scope,MovieService) {<br />
+        $&emsp;scope.searchMovies = function () {<br />
+        &emsp;&emsp;MovieService.search($scope.searchByTitle, function (response) {<br />
+        &emsp;&emsp;$scope.movies = response;<br />
+        &emsp;&emsp;})<br />
+        &emsp;}<br />
+        &emsp;$scope.addToFav = function (m)<br />
+        &emsp;{<br />
+        &emsp;&emsp;MovieService.addToFav(m);<br />
+        &emsp;}<br />
+        &emsp;});
+    </code>
+    <p>I have created a service to handle the functionality of searching movies based on the title and adding the movie to favorites as well to display the favorite movies.</p>
+    <code>
+        &emsp;.factory('MovieService', function MovieService($http) {<br /><br />
+        &emsp;var searchMovies = function (title, callback) {<br />
+        &emsp;&emsp;$http.jsonp("http://www.myapifilms.com/imdb?title=" + title + "&format=JSONP&aka=0&business=0&seasons=0&seasonYear=0&technical=0&filter=N&exactFilter=0&limit=10&lang=en-us&actors=N&biography=0&trailer=0&uniqueName=0&filmography=0&bornDied=0&starSign=0&actorActress=0&actorTrivia=0&movieTrivia=0&awards=0&moviePhotos=N&movieVideos=N&callback=JSON_CALLBACK")<br />
+        &emsp;&emsp;.success(callback);<br />
+        &emsp;}<br /><br />
+        &emsp;var favMovies = [];<br /><br />
+        &emsp;var addToFav = function (m) {<br />
+        &emsp;&emsp;favMovies.push(m);<br />
+        &emsp;}<br /><br />
+        &emsp;var getFav = function () {<br />
+        &emsp;&emsp;return favMovies;<br />
+        &emsp;}<br />
+        &emsp;return {<br />
+        &emsp;&emsp;search: searchMovies,<br />
+        &emsp;&emsp;addToFav: addToFav,<br />
+        &emsp;&emsp;getFav: getFav<br />
+        &emsp;}<br /><br />
+        &emsp;});
+    </code>
+    <p>Code for the profile controller which calls the service.</p>
+    <code>
+        &emsp;app.controller("FavCtrl", function ($scope, MovieService) {<br />
+        &emsp;&emsp;var fav = MovieService.getFav();<br />
+        &emsp;&emsp;console.log(fav);<br />
+        &emsp;&emsp;$scope.favMovies = fav;<br />
+        &emsp;});
+    </code>
+    <hr />
+    <h3>Description</h3>
+    <p>AngularJS, commonly referred to as Angular, is an open-source web application framework maintained by Google and a community of individual developers and corporations to address many of the challenges encountered in developing single-page applications. Its goal is to simplify both development and testing of such applications by providing a framework for client-side model–view–controller (MVC) architecture, along with components commonly used in rich internet applications.</p>
+    <p>In this experiment I am displaying list of all the movies from the server for the title provided by the user. Along with this I have also provided a functionality to add a to the favorites list. This is done by routing between various html pages which have a controller for each of them that provide these functionalities. This routing is achieved with the help of model ngRoute</p>
+    <hr />
+    <h3>Source Code</h3>
+    <div>
+        <a href="../../fileview/Default.aspx?~/experiments/WEEK-5/exp4.html" target="_blank">View HTML Code</a>
+    </div>
+    <div>
+        <a href="../../fileview/Default.aspx?~/experiments/WEEK-5/expr4.js" target="_blank">View AngularJS Code</a>
+    </div>
+    <div>
+        <a href="../../fileview/Default.aspx?~/experiments/WEEK-5/exp4-service.js" target="_blank">View AngularJS Service Code</a>
+    </div>
+    <hr />
+    <h3>References</h3>
+    <div>
+        <a href="https://www.youtube.com/watch?v=PlAxG8R_zXI" target="_blank">Youtube</a>
+    </div>
+</body>
+</html>
