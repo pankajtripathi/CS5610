@@ -1,6 +1,2 @@
-﻿../../story/whatisnext.htm?../experiments/WEEK-9/      What is Next?
-exp1.html                                          Contact Page
-exp2.html				                           CSS for Contact page
-exp3.html				                           Responsive screen
-exp4.html                                          Responsive Menu
-exp5.html                                          Added routing on index.html page
+﻿../../story/whatisnext.htm?../project/docs/        What is Next?
+documentation.html                                 Movietime: Project Documentation

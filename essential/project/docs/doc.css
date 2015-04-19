@@ -7,8 +7,13 @@ h1 {
     color:green;
 }
 
-h3 {
+h3,h4 {
  color:green;
+}
+
+#link, #link:hover {
+    color:blue;
+    font-size:13px;
 }
 
 p,b{
@@ -22,4 +27,19 @@ p,b{
 #flow {
  width:800px;
  height:500px;
+}
+#login-img {
+  width:300px;
+  height:400px;
+}
+
+.home-img {
+ width:900px;
+ height:600px;
+}
+
+
+.inthea-img {
+ width:1000px;
+ height:600px;
 }

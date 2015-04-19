@@ -1,0 +1,313 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Calculator using jQuery</title>
+    <link rel="stylesheet" href="jQuery/css/jquery-ui.css"/>
+    <link rel="stylesheet" href="jQuery/css/bootstrap.css" />
+    <link rel="stylesheet" href="jQuery/css/bootstrap.css.map" />
+    <script src="jQuery/js/jquery.js"></script>
+    <link rel="stylesheet" href="doc.css" />
+    <script src="jQuery/js/jquery-ui.js"></script>
+    <script src="doc.js"></script>
+</head>
+<body>
+    <h1>MovieTime: Project Documentation</h1>
+    <hr />
+    <div class="container">
+        <div id="accordion">
+            <h3>Abstract</h3>
+            <div>
+                <br />
+                <h4>CS5610: Web Development:</h4>
+                <p>
+                    This course is one of the most practice oriented courses that I have taken in my masters program.
+                    Learning by experimenting has been a great experience, under the guidance of eminent faculty.
+                    I would like to thank and express my gratitude to Dr Jose Annunziato. His encouragement, and immense knowledge were key motivations
+                    throughout my course. Professor Jose  allowed us to learn new technologies like node.js,mongodb,angular js for which I am greatful.
+            
+                    I woud also take this opportunity to thank my TA Sneha Vankireddy who helped me with my experiments, as she always was available to give her feedback on experiments
+                    and always let me know where I can improve.
+                </p>
+                <h4>Data Courtesy:</h4>
+                <p>
+                    <b>RottenTomatoes API:</b> The data provided by Rotten Tomatoes API is soul of this project. Without the data provided by them it would have been impossible to get this project done.
+                </p>
+                <p>
+                    <b>Rottentomatoes.com:</b> This site helped me to take a look at how the data related to movies is served to users.
+                </p>
+            </div>
+            <h3>Acknowledgment</h3>
+            <div>
+                <h4>Goal:</h4>
+                <p>
+                    The objective of this web development project is to design a website where user can check out the movies currently in theaters, upcoming movies,
+                    movies currently topping box office charts, search movies and along with these features user can login and create his own list of movies to watch.
+                </p>
+                <h3>System Features:</h3>
+                <b>1. Search Movie</b>
+                <p>This feature allows user to search for hisher favorite movie from the RottenTomatoes API and check the movie details.</p>
+                <b>2. In Theaters</b>
+                <p>This feature provides user with all the movies currently showing in theaters that he/she can check out. User can click on the result and check the movie details</p>
+                <b>3. Box Office</b>
+                <p>This feature provides user with movies currently topping box office charts. User can click on the result and check the movie details</p>
+                <b>4. Opening Movies</b>
+                <p>This feature allows user to check out movies opening this week. User can click on the result and check the movie details</p>
+                <b>5. Upcoming movies</b>
+                <p>This feature allows user to check out movies coming next week and month. User can click on the result and check the movie details</p>
+                <b>6. Movie Reviews</b>
+                <p>This feature allows user to check out movie reviews on the movie details page.</p>
+                <b>7. Login</b>
+                <p>This feature enables user to login and create his/her own list of movies to watch</p>
+
+                <br />
+                <br />
+                <img id="flow" src="snaps/flow-chart.png" />
+            </div>
+            <h3>Technologies</h3>
+            <div>
+                <h4>Web Technologies:</h4>
+                <p>
+                    HTML <br />
+                    CSS3 <br />
+                    jQuery and Javascript <br />
+                    AngularJS<br />
+                    NodeJS<br />
+                </p>
+                <h4>Format In which Data is fetched :</h4>
+                <p>
+                    JSON
+                </p>
+                <h4>Database:</h4>
+                <p>
+                    MongoDB
+                </p>
+                <h4>API Used:</h4>
+                <p>
+                    RottenTomatoes
+                </p>
+                <h4>Compatible Browsers:</h4>
+                <p>
+                    Google Chrome<br />
+                    Mozilla Firfox<br />
+                    Internet Explorer 10 & Above<br />
+                </p>
+            </div>
+            <h3>Homepage</h3>
+            <div>
+                <h4>Homepage</h4>
+                <p>Please check out the home page at below mentioned link</p>
+                <div id="link">
+                    <a id="link" href="http://myproject-pankajt.rhcloud.com/">Homepage Link</a>
+                </div>
+                <br /><br />
+                <p>
+                    I have used bootstrap for styling the home page. In the homepage I have mentioned some of the basic services
+                    provided by this site like movies in theaters, searching a movie, movie reviews, movie watchlist and so on. I have provided
+                    a responsive navbar at the top of the page which has all the basic navigation links.
+                </p>
+                <div>
+                    <img class="home-img" src="snaps/home-img.png" />
+                </div>
+                <br /><br />
+            </div>
+            <h3>Login Page</h3>
+            <div>
+                <h4>Login Page:</h4>
+                <p>
+                    The login page is provided in order to enable user to login into his account and add movies to his watch list.
+                    Once user logs in he/she can search and add movies he/she wishes to watch sometime later and once done watching
+                    the list can be updated by deleting the movie.
+                </p>
+                <br /><br />
+                <img id="login-img" src="snaps/login-img.png" />
+                <br />
+                <h4>Login Controller</h4>
+                <p>
+                    Login services are designed using Node.js and Express Module. MongoDB is used for storing all the user data. 
+                    Since the web page is implemented as a single page website, angular routing is used to route pages and 
+                    for login a controller is used to complete login action.
+                </p>
+            </div>
+            <h3>Registration Page</h3>
+            <div>
+                <h4>Registration Page</h4>
+                <p>
+                    I have implemented registration page to enable new user to register himself/herslef in order to access and create a
+                    new profile so that he/she can add movies to his/her watch list. I have created a basic registration form where user enters
+                    generic details and get registered.
+                </p>
+                <br /><br />
+                <img id="reg-img" src="snaps/reg-img.png" />
+                <br /><br />
+                <br />
+                <h4>Registration Controller</h4>
+                <p>
+                    I am registering a new user are created using NodeJS, AngularJS and MongoDB. The following sevices are playing a role on this page.
+                    Check if user name exists or not.
+                    Register a new user, store all the details in DB and respond back accordingly
+                </p>
+            </div>
+            <h3>In Theaters</h3>
+            <div>
+                <h4>In Theaters</h4>
+                <p> 
+                    To check out movies currently showing in theaters click on moviezone dropdown at navbar.
+                    Then user can check out the movies crrently showing in theaters. User can click on the movie and check its details and also check
+                    movie reviews.
+                </p>
+                <div>
+                    <img class="inthea-img" src="snaps/inthea-img1.png" />
+                </div><br /><br />
+                <div>
+                    <img class="inthea-img" src="snaps/inthea-img2.png" />
+                </div>
+                <br /><br />
+            </div>
+            <h3>Movie Details</h3>
+            <div>
+                <h4>Movie Details</h4>
+                <p>
+                    User can check the movie details from movie results shown in In Theaters page, Opening Movies, Box office, Search page, and Upcoming movies page.
+                    User can hover on the result table and get the movie details by clicking on the result and then he/she can check out the details of the movie.
+                </p>
+                <div>
+                    <img class="inthea-img" src="snaps/det-img.png" />
+                </div><br /><br /><br />
+            </div>
+            <h3>Search Movie</h3>
+            <div>
+                <h4>Search Movie</h4>
+                <p>
+                    User can search movie by it title. Search bar is provided at the navigation bar which can be accessed from any page
+                    on the site. Result of search is displayed in tabular format and user can check the details of these movies by clicking
+                    on the result.
+                </p>
+                <img class="inthea-img" src="snaps/sea-img1.png" />
+                <br /><br />
+
+                <img class="inthea-img" src="snaps/sea-img2.png" />
+            </div>
+            <h3>Box Office</h3>
+            <div>
+                <h4>Box Office</h4>
+                <p>
+                    User can check the movies currently topping box office charts. The result is displayed in tabular format and on clicking the result user can check the
+                    movie details.
+                </p>
+                <div>
+                    <img class="inthea-img" src="snaps/box-img.png" />
+                </div><br /><br /><br />
+            </div>
+            <h3>Opening Movies</h3>
+            <div>
+                <h4>Opening Movies</h4>
+                <p>
+                    User can check the movies opening this week at the box office. The result is displayed in tabular format and on clicking the result user can check the
+                    movie details.
+                </p>
+                <div>
+                    <img class="inthea-img" src="snaps/open-img.png" />
+                </div><br /><br /><br />
+            </div>
+            <h3>Upcoming Movies</h3>
+            <div>
+                <h4>Upcoming Movies</h4>
+                <p>
+                    User can check the upcoming movies but clicking on the upcoming movies option at the moviezone dropdown available at homepage. The result is displayed in tabular format and on clicking the result user can check the
+                    movie details.
+                </p>
+                <div>
+                    <img class="inthea-img" src="snaps/up-img.png" />
+                </div><br /><br /><br />
+            </div>
+            <h3>Movie Reviews</h3>
+            <div>
+                <h4>Movie Reviews</h4>
+                <p>
+                    User can check the movie reviews by checking the movie details. At the end of the movie details page there is a button to check the movie reviews for a movie 
+                    Reviews from various critics and reviewers is available in brief. User can check out the full review by clicking the link provided.
+                </p>
+                <div>
+                    <img class="inthea-img" src="snaps/rev-img1.png" />
+                </div><br /><br /><br />
+                <div>
+                    <img class="inthea-img" src="snaps/rev-img2.png" />
+                </div><br /><br /><br />
+            </div>
+            <h3>Profile Page</h3>
+            <div>
+                <h4>Profile Page</h4>
+                <p>
+                    User once logged in and authenticated will be taken to his/her profile page where all the profile related info will be displayed.
+                    User can check his/her info and then there is also a button at the end which will take the user to the movie watchlist page where
+                    he/she can add movies that they wish to see sometime.
+                </p>
+                <div>
+                    <img class="inthea-img" src="snaps/prof-img.png" />
+                </div><br /><br /><br />
+            </div>
+            <h3>MyMovies Page</h3>
+            <div>
+                <h4>MyMovies Page</h4>
+                <p>
+                    Logged in user can create a list of movies they would love to watch by searching the movies
+                    User can check his/her info and then there is also a button at the end which will take the user to the movie watchlist page where
+                    he/she can add movies that they wish to see sometime.
+                </p>
+                <div>
+                    <img class="inthea-img" src="snaps/mymov-img.png" />
+                </div><br /><br /><br />
+            </div>
+            <h3>Data Storage: MongoDB</h3>
+            <div>
+                <h4>Data Storage: MongoDB</h4>
+                <p>
+                    A lot of data is handled in the project, for backend storage purpose I am using MongoDB which is a no SQL database. In mongoDB there are collections instead of tables and documents (JSON Objects) instead of tupples.
+                    The Coolections for my project are :
+                    <ul>
+                        <li>
+                            <b>Usermodels:</b> This collection is used to store the user details.
+                        </li>
+                        <li>
+                            <b>Movmodels:</b> This collection is used to store the users movies in movie watchlist along with the username.
+                        </li>
+                    </ul>
+                </p>
+            </div>
+            <h3>Future Scope and References</h3>
+            <div>
+                <h4>Future Scope</h4>
+                <ul>
+                 
+                   <li>In future I will be adding sorting functionality on movie result pages. User will be able to sort the movies based on the details provided
+                    at the header of the search result.</li> 
+                    <li>I will also be adding functionality to add some more details to profile.</li>
+                    <li>I will also be functionality to review movie and add it my movies page.</li>
+                </ul>
+                <br /><br />
+                <h4>References</h4>
+                <ul>
+                    <li><a id="link" href="http://www.w3schools.com/">W3 Schools</a></li>
+                    <li><a id="link" href="https://www.youtube.com/channel/UCCgliN1n-OaiYJbZV8gypNA">Prof. Jose's Youtube Page</a></li>
+                    <li><a id="link" href="http://www.rottentomatoes.com/">Rotten Tomatoes</a></li>
+                    <li><a id="link" href="http://www.mongodb.org/">MongoDB</a></li>
+                    <li><a id="link" href="https://nodejs.org">NodeJS</a></li>
+                    <li><a id="link" href="https://expressjs.org">ExpressJS</a></li>
+                </ul>
+            </div>
+        </div>
+        <br /><br /><br />
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="right">
+                        Copyright &copy; Pankaj Tripathi - Northeastern
+                        University - CS 5610 Spring 2015
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

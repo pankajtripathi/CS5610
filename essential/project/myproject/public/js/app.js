@@ -284,13 +284,12 @@ app.controller("profileCtrl",
 		
 		$http.get("/favMovies/"+$rootScope.currentUser.username)
 		.success(function (response) {
-			$scope.fav="err"
 			$rootScope.favMovies = response;
 			console.log(response);
-		})
-	    .error(function (err){
-        	$scope.fav=null;
-	    });
+			if(response.length == 0){
+				$scope.fav=null;
+			}
+		});
 		$location.url("/MyMovies");
 	}
 	       
@@ -319,7 +318,6 @@ app.controller("MyMoviesCtrl",
 	}
 	
      $scope.addToFav = function (m) {
-         console.log($scope.currentUser);
          var data = {
         		 favMovies: m,
         		 username: $scope.currentUser.username
@@ -327,13 +325,9 @@ app.controller("MyMoviesCtrl",
 
          $http.post("/favMovies", data)
          .success(function (response) {
-    	 $scope.fav = "err";
+    	 $scope.fav="err";
          $rootScope.favMovies = response;  
-         console.log(response);
-         })
-         .error(function (err){
-         	$scope.fav=null;
- 	     })
+         });
      }
      
      $scope.removeFavMovie = function (m) {  

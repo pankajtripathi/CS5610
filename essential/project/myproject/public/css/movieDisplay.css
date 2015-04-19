@@ -22,7 +22,7 @@ table {
 
 tbody> tr:hover,tbody> tr.alt:hover
 {
-    background: azure!important;
+    background: rgba(0, 255, 0, 0.1)!important;
 }
 
 .poster {

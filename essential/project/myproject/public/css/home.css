@@ -9,13 +9,13 @@ body {
     display: block;
     width: 100%;
     text-align: left;
-    background: url('../res/background-site.png') no-repeat center center scroll;
+    background: url('../res/index-head.jpg') no-repeat center center scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
-    height: 700px;
-    opacity: 50%;
+    height: 350px;
+    opacity: 10%;
 }
 
 .navbar{
@@ -47,6 +47,7 @@ body {
 
 .featurette {
     overflow: hidden;
+    margin-top: -90px;
 }
 
 .featurette-image{
