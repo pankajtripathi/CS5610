@@ -1,3 +1,4 @@
 ﻿../story/whatisnext.htm?../project/                     What is Next?
 http://myproject-pankajt.rhcloud.com/	                  Project Homepage Link
-../story/index.htm?../project/docs/    Documentation
+../story/index.htm?../project/docs/                       Documentation
+https://github.com/pankajtripathi/CS5610-project-movietime Project Github

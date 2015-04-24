@@ -169,6 +169,9 @@
                 <p>
                     User can check the movie details from movie results shown in In Theaters page, Opening Movies, Box office, Search page, and Upcoming movies page.
                     User can hover on the result table and get the movie details by clicking on the result and then he/she can check out the details of the movie.
+                    User can also check the review of the movie by clicking the movie review button on the page and he/she can also add the movie to his/her
+                    watch list by clicking the add to watch list button but for that user should be logged in. If the user is not logged in he/she wont be able 
+                    to see add to watch list button as it will be hidden ad will be showed to only logged in user.
                 </p>
                 <div>
                     <img class="inthea-img" src="snaps/det-img.png" />
@@ -239,23 +242,29 @@
                 <h4>Profile Page</h4>
                 <p>
                     User once logged in and authenticated will be taken to his/her profile page where all the profile related info will be displayed.
-                    User can check his/her info and then there is also a button at the end which will take the user to the movie watchlist page where
-                    he/she can add movies that they wish to see sometime.
+                    User can check his/her info at the same time user can edit his/her details. User can change any details except for username which cannot 
+                    be changed. On the profile page user's movie watch list is also displayed. If no such list is created then the content won't be displayed
                 </p>
                 <div>
                     <img class="inthea-img" src="snaps/prof-img.png" />
                 </div><br /><br /><br />
             </div>
-            <h3>MyMovies Page</h3>
+            <h3>Adding Movie to WatchList</h3>
             <div>
-                <h4>MyMovies Page</h4>
+                <h4>Adding Movie to WatchList</h4>
                 <p>
-                    Logged in user can create a list of movies they would love to watch by searching the movies
-                    User can check his/her info and then there is also a button at the end which will take the user to the movie watchlist page where
-                    he/she can add movies that they wish to see sometime.
+                    In order to add movie to watch list a movie should be checked from either of these pages:
+                    In Theaters, Box Office, Upcoming Movies, Opening Movies and Movie Search. 
+                    The results on these page will be movies whose details can be checked. On the details page there is a button which 
+                    enables user to add the movie to the list which will be displayed on his/her profile page. In order to add movie to list from
+                    Movie details page the user must be logged in else he won't be able to see the button ADD TO WATCH LIST.
+                    The button is hidden for guest users.
                 </p>
                 <div>
-                    <img class="inthea-img" src="snaps/mymov-img.png" />
+                    <img class="inthea-img" src="snaps/wat-img1.png" />
+                </div><br />
+                <div>
+                    <img class="inthea-img" src="snaps/wat-img2.png" />
                 </div><br /><br /><br />
             </div>
             <h3>Data Storage: MongoDB</h3>
